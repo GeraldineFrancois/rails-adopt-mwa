@@ -17,4 +17,4 @@ Animal.create(breed: "cat", name: "Tripod", age: 3, ok_sterilised: true, ok_vacc
 Animal.create(breed: "dog", name: "Yoko", age: 4, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Tamarin", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 Animal.create!(breed: "cat", name: "Caramel", age: 1, ok_sterilised: false, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Curepipe", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 
-puts "Created #{Animal.all.count}"
+
