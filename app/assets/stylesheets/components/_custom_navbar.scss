@@ -1,0 +1,27 @@
+.custom-nav {
+  background-color: rgb(255, 255, 255);
+  position: fixed;
+  bottom: 0;
+  width: 100vw;
+}
+
+.custom-nav-container {
+  width: 100%;
+}
+
+.custom-nav-links {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 0;
+  padding: 20px 0;
+}
+
+.custom-nav i {
+  color: #00000078;
+  font-size: 1.5rem;
+}
+
+i.active {
+  color: blue;
+}
