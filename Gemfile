@@ -78,3 +78,7 @@ group :test do
   gem "selenium-webdriver"
 
 end
+
+gem "cloudinary"
+gem "pundit"
+gem "geocoder"
