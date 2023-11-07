@@ -1,0 +1,26 @@
+<nav class="custom-nav">
+  <div class="custom-nav-container">
+    <ul class="custom-nav-links">
+      <li class="nav-links ">
+        <%= link_to root_path, class: "" do %>
+            <i class="fa-solid fa-house <%= set_active_class?(root_path) %>"></i>
+        <% end %>
+      </li>
+      <li class="nav-links ">
+        <%= link_to root_path, class: "" do %>
+            <i class="fa-solid fa-heart <%= set_active_class?(root_path) %>"></i>
+        <% end %>
+      </li>
+      <li class="nav-links ">
+        <%= link_to root_path, class: "" do %>
+            <i class="fa-solid fa-message <%= set_active_class?(root_path) %>"></i>
+        <% end %>
+      </li>
+       <li class="nav-links ">
+        <%= link_to root_path, class: "" do %>
+            <i class="fa-solid fa-user <%= set_active_class?(root_path) %>"></i>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>
