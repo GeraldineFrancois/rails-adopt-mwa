@@ -1,5 +1,8 @@
 class Animal < ApplicationRecord
+  COMPATIBILITY = %w[dog cat]
+  BEHAVIOURS = %w[playful calm aggressive]
+
   belongs_to :user
   has_one :adoption
-  validates :breed, :name, :age, :ok_sterilised, :ok_vaccinated, :has_handicap, :ok_dog, :ok_cat, :ok_play, :ok_calm, :location, presence: true
+  validates :breed, :name, :age, :ok_vaccinated, :behaviour, :location, presence: true
 end
