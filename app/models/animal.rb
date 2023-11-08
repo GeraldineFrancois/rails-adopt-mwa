@@ -8,6 +8,4 @@ class Animal < ApplicationRecord
   validates :breed, inclusion: { in: %w(dog cat)}
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
-
-  acts_as_taggable_on :tags
 end
