@@ -2,18 +2,21 @@ class AnimalsController < ApplicationController
 
   def index
     @animals = Animal.all
+
     @animals = policy_scope(Animal)
+
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,
         lng: animal.longitude
       }
     end
+
   end
 
   def show
     @animal = Animal.find(params[:id])
-    # authorize @animal
+    authorize @animal
   end
 
   def new
@@ -52,9 +55,17 @@ class AnimalsController < ApplicationController
     redirect_to animals_path, status: :see_other
   end
 
+  def tagged
+    if params[:tag].present?
+      @animals = Animal.tagged_with(params[:tag])
+    else
+      @animals = Restaurant.all
+    end
+  end
+
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :ok_vaccinated, :handicapped,  :ok_cat, :ok_play, :ok_calm, :location)
+    params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :ok_vaccinated, :handicapped,  :ok_cat, :ok_play, :ok_calm, :location, tag_list: [])
   end
 end

@@ -1,6 +1,6 @@
 class AnimalPolicy < ApplicationPolicy
   class Scope < Scope
-    
+
     def show?
       true
     end

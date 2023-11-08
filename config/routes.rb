@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :animals
+
   resources :users, only: [:show, :edit, :update]
+
 end
