@@ -1,0 +1,15 @@
+<div class="edit-container">
+  <div class="container">
+    <%= simple_form_for @user, url: user_path(@user), method: :patch do |f| %>
+      <%= f.input :first_name %>
+      <%= f.input :last_name %>
+      <%= f.input :phone %>
+      <%= f.input :has_dog, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
+      <%= f.input :has_cat, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
+      <%= f.input :has_closed_garden, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
+      <%= f.input :has_basket, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
+      <%= f.input :has_kennel, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
+      <%= f.button :submit, "Confirm changes", class: "btn btn-outline-primary" %>
+    <% end %>
+  </div>
+</div>

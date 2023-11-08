@@ -5,8 +5,8 @@ class AnimalsController < ApplicationController
     @animals = policy_scope(Animal)
     @markers = @animals.geocoded.map do |animal|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: animal.latitude,
+        lng: animal.longitude
       }
     end
   end
