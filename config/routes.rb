@@ -8,5 +8,6 @@ Rails.application.routes.draw do
 
   resources :animals
 
-  
+  resources :users, only: [:show, :edit, :update]
+
 end

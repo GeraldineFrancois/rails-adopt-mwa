@@ -17,7 +17,7 @@
         <% end %>
       </li>
        <li class="nav-links ">
-        <%= link_to root_path, class: "" do %>
+        <%= link_to user_path(current_user), class: "" do %>
             <i class="fa-solid fa-user <%= set_active_class?(root_path) %>"></i>
         <% end %>
       </li>
