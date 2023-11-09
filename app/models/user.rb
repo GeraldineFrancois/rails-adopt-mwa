@@ -1,7 +1,6 @@
 class User < ApplicationRecord
   has_many :animals, dependent: :destroy
-  has_many :adoptions
-  has_many :favourites, dependent: :destroy
+  has_many :adoptions, dependent: :destroy
 
   validates :first_name, :last_name, :phone, :address, presence: true
   # Include default devise modules. Others available are:
