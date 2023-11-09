@@ -6,7 +6,7 @@
             <i class="fa-solid fa-house <%= set_active_class?(root_path) %>"></i>
         <% end %>
       </li>
-      <li class="nav-links ">
+      <li class="nav-links">
         <%= link_to root_path, class: "" do %>
             <i class="fa-solid fa-heart <%= set_active_class?(root_path) %>"></i>
         <% end %>
@@ -16,11 +16,29 @@
             <i class="fa-solid fa-message <%= set_active_class?(root_path) %>"></i>
         <% end %>
       </li>
+<<<<<<< HEAD
+      <li class="nav-links ">
+        <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
+          <i class="fa-solid fa-user<%= set_active_class?(root_path) %>"></i>
+        </a>
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
+            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <div>
+              <%= link_to "My profile", user_path(current_user), class: "text-decoration-none" %>
+            </div>
+          </div>
+        </div>
+=======
       <% if user_signed_in? %>
        <li class="nav-links ">
         <%= link_to user_path(current_user), class: "" do %>
             <i class="fa-solid fa-user <%= set_active_class?(root_path) %>"></i>
         <% end %>
+>>>>>>> master
       </li>
       <% else %>
         <li class="nav-item">
