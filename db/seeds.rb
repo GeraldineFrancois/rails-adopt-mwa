@@ -18,4 +18,6 @@ Animal.create(breed: "cat", name: "Tripod", age: 3, ok_sterilised: true, ok_vacc
 Animal.create(breed: "dog", name: "Yoko", age: 4, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Tamarin", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 Animal.create!(breed: "cat", name: "Caramel", age: 1, ok_sterilised: false, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Curepipe", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 
-Adoption.create(start_date: "2023/10/26", status: "Accepted", user: user1, animal: animal1 )
+adoption1 = Adoption.create(start_date: "2023/10/26", status: "Accepted", user: user1, animal: animal1 )
+
+Chatroom.create(name: "Pilou", adoption: adoption1)
