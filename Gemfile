@@ -82,3 +82,4 @@ end
 gem "cloudinary"
 gem "pundit"
 gem "geocoder"
+gem 'acts-as-taggable-on'
