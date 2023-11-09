@@ -16,6 +16,7 @@
             <i class="fa-solid fa-message <%= set_active_class?(root_path) %>"></i>
         <% end %>
       </li>
+<<<<<<< HEAD
       <li class="nav-links ">
         <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
           <i class="fa-solid fa-user<%= set_active_class?(root_path) %>"></i>
@@ -31,7 +32,19 @@
             </div>
           </div>
         </div>
+=======
+      <% if user_signed_in? %>
+       <li class="nav-links ">
+        <%= link_to user_path(current_user), class: "" do %>
+            <i class="fa-solid fa-user <%= set_active_class?(root_path) %>"></i>
+        <% end %>
+>>>>>>> master
       </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>

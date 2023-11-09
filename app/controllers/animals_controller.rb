@@ -1,4 +1,5 @@
 class AnimalsController < ApplicationController
+  
 
   def index
     @animals = Animal.all
@@ -55,17 +56,13 @@ class AnimalsController < ApplicationController
     redirect_to animals_path, status: :see_other
   end
 
-  def tagged
-    if params[:tag].present?
-      @animals = Animal.tagged_with(params[:tag])
-    else
-      @animals = Restaurant.all
-    end
-  end
+
 
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :ok_vaccinated, :handicapped,  :ok_cat, :ok_play, :ok_calm, :location, tag_list: [])
+    params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :ok_vaccinated, :handicapped,  :ok_cat, :ok_play, :ok_calm, :location)
   end
+
+
 end

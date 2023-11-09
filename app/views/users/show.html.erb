@@ -13,3 +13,4 @@
 <p>Basket <%= @state[3] %></p>
 <p>Dog kennel <%= @state[4] %></p>
 <%= link_to "Edit information", edit_user_path(current_user) %>
+ <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
