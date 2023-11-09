@@ -41,6 +41,8 @@
           <p class="card-text"><%= animal.age %> years</p>
         <% end %>
         <%= link_to "Show more details", animal_path(animal), class:"btn btn-outline-primary w-100" %>
+        <%= link_to "Add to favourites", animal_favourites_path(animal), class:"btn btn-outline-primary w-100" %>
+
       </div>
     </div>
     <% end %>
