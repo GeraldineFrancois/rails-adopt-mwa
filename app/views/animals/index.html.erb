@@ -42,12 +42,13 @@
         <% end %>
         <%= link_to "Show more details", animal_path(animal), class:"btn btn-outline-primary w-100" %>
 
-        <%= link_to(
-          toggle_favorite_animal_path(animal),
-          data: {turbo_method: :post}) do
-        %>
-          
-          <i class="fas fa-heart <%= animal.favorited_by?(current_user) ? 'favorite' : '' %>"></i>
+        <% if user_signed_in? %>
+          <%= link_to(
+            toggle_favorite_animal_path(animal),
+            data: {turbo_method: :post}) do
+          %>
+            <i class="fas fa-heart <%= animal.favorited_by?(current_user) ? 'favorite' : '' %>"></i>
+          <% end %>
         <% end %>
       </div>
     </div>
