@@ -3,9 +3,12 @@ class Animal < ApplicationRecord
   BEHAVIOURS = %w[playful calm aggressive]
 
   belongs_to :user
+  has_many :favorites, dependent: :destroy
   has_one :adoption
   # validates :breed, :name, :age, :ok_vaccinated, :behaviour, :location, presence: true
   validates :breed, inclusion: { in: %w(dog cat)}
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
+
+  scope :favorited_by, -> (username) { joins(:favorites).where(favorites: { user: User.where(username: username) }) }
 end
