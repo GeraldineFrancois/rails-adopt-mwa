@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :animals do
     resources :favourites, only: [:index, :create, :destroy]
+    resources :adoptions, only: [:index, :show, :new, :create]
   end
 
   resources :users, only: [:show, :edit, :update]

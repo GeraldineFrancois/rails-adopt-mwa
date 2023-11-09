@@ -10,6 +10,7 @@
     <li>Compatibility: <%= @animal.compatibility %></li>
   </ul>
 
+  <%= link_to "Adopt this animal", new_animal_adoption_path(@animal) %>
 
     <%# t.boolean "ok_sterilised", default: false
     t.boolean "ok_vaccinated", default: false
