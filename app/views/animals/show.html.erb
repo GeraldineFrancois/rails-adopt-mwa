@@ -1,15 +1,23 @@
 <div class="container">
   <%= link_to "Back", animals_path %>
-  <h2><%= @animal.name %></h2>
-  <p><%= @animal.age %></p>
-  <ul>
-    <li>Sterilised: <%= @animal.ok_sterilised %></li>
-    <li>Vaccinated: <%= @animal.ok_vaccinated %></li>
-    <li>Handicapped: <%= @animal.handicapped %></li>
-    <li>Behaviour: <%= @animal.behaviour %></li>
-    <li>Compatibility: <%= @animal.compatibility %></li>
-  </ul>
+</div>
+<%# Carousel %>
+  <div class="img-full-width"><img src="https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699357227/2150644648_kaxr1b.jpg"></div>
 
+
+<div class="container">
+  <h2><%= @animal.name %></h2>
+  <%# Pills section %>
+  <ul class="column">
+    <li class="pill"><i class="fa-regular fa-calendar-xmark"></i> <%= @animal.age %> years</li>
+    <li class="pill"><i class="fa-solid fa-syringe"></i> Vaccinated: <%= @state[0] %></li>
+    <li class="pill"><i class="fa-solid fa-scissors"></i> Sterilised: <%= @state[1] %></li>
+    <li class="pill"><i class="fa-solid fa-briefcase-medical"></i> Handicapped: <%= @state[2] %></li>
+    <li class="pill"><i class="fa-solid fa-fire"></i> Behaviour: <%= @animal.behaviour %></li>
+    <li class="pill"><i class="fa-solid fa-heart-circle-plus"></i> Compatibility: <%= @animal.compatibility %></li>
+  </ul>
+  <h3>Description</h3>
+  <p><%= @animal.description %></p>
 
     <%# t.boolean "ok_sterilised", default: false
     t.boolean "ok_vaccinated", default: false
@@ -20,7 +28,7 @@
     t.boolean "handicapped", default: false
     t.string "behaviour"
     t.string "compatibility" %>
-
+  
   <div style="width: 250px; height: 200px;"
     data-controller="map"
     data-map-markers-value="<%= @markers.to_json %>"
