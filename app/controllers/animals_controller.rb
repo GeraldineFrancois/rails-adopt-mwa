@@ -1,5 +1,8 @@
 class AnimalsController < ApplicationController
 
+  before_action :authenticate_user!, except: [:index, :show]
+
+
 
   def index
     @animals = Animal.all
@@ -66,12 +69,19 @@ class AnimalsController < ApplicationController
   end
 
 
+  def toggle_favorite
+    @animal = Animal.find_by(id: params[:id])
+    current_user.favorited?(@animal) ? current_user.unfavorite(@animal) : current_user.favorite(@animal)
+    redirect_to animals_path
+  end
 
+  def favorites
+    current_user.all_favorites
+  end
   private
 
   def animal_params
     params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :ok_vaccinated, :handicapped,  :ok_cat, :ok_play, :ok_calm, :location)
   end
-
 
 end
