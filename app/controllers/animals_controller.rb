@@ -18,6 +18,15 @@ class AnimalsController < ApplicationController
   def show
     @animal = Animal.find(params[:id])
     authorize @animal
+    @conditions = [@animal.ok_vaccinated, @animal.ok_sterilised, @animal.handicapped]
+    @state = []
+    @conditions.each do |condition|
+      if condition
+        @state << 'Yes'
+      else
+        @state << 'No'
+      end
+    end
   end
 
   def new

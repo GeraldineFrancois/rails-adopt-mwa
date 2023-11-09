@@ -2,46 +2,48 @@
   <div class="custom-nav-container">
     <ul class="custom-nav-links">
       <li class="nav-links ">
-        <%= link_to root_path, class: "" do %>
-            <i class="fa-solid fa-house <%= set_active_class?(root_path) %>"></i>
+        <%= link_to animals_path, class: "" do %>
+            <i class="fa-solid fa-house <%= set_active_class?(animals_path) %>"></i>
         <% end %>
       </li>
       <li class="nav-links">
-        <%= link_to root_path, class: "" do %>
-            <i class="fa-solid fa-heart <%= set_active_class?(root_path) %>"></i>
+        <%= link_to animal_favourites_path(current_user), class: "" do %>
+            <i class="fa-solid fa-heart <%= set_active_class?(animal_favourites_path(current_user)) %>"></i>
         <% end %>
       </li>
       <li class="nav-links ">
-        <%= link_to root_path, class: "" do %>
-            <i class="fa-solid fa-message <%= set_active_class?(root_path) %>"></i>
+        <%= link_to chatroom_path(current_user), class: "" do %>
+            <i class="fa-solid fa-message <%= set_active_class?(chatroom_path(current_user)) %>"></i>
         <% end %>
       </li>
       <li class="nav-links ">
         <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
           <i class="fa-solid fa-user<%= set_active_class?(root_path) %>"></i>
         </a>
-        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas</h5>
-            <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-          <div class="offcanvas-body">
-            <div>
-              <%= link_to "My profile", user_path(current_user), class: "text-decoration-none" %>
-            </div>
+      </li>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas Test</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <div>
+            <% if user_signed_in? %>
+              <p>User is signed in</p>
+              <li class="nav-links ">
+                <%= link_to user_path(current_user), class: "" do %>
+                    <i class="fa-solid fa-user <%= set_active_class?(user_path(current_user)) %>"></i>
+                <% end %>
+              </li>
+              <% else %>
+                <p>User is not signed in.</p>
+                <li class="nav-item">
+                  <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+                </li>
+              <% end %>
           </div>
         </div>
-      <% if user_signed_in? %>
-       <li class="nav-links ">
-        <%= link_to user_path(current_user), class: "" do %>
-            <i class="fa-solid fa-user <%= set_active_class?(root_path) %>"></i>
-        <% end %>
-      </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
+      </div>
     </ul>
   </div>
 </nav>
