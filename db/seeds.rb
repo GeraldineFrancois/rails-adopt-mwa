@@ -11,10 +11,10 @@ Animal.destroy_all
 
 
 user1 = User.create(id: "1", email: "jenapotayah@gmail.com", password: "1234567", first_name: "Jena", last_name: "Potayah", phone: "58486292", address: "Quatre-Bornes", has_dog: false, has_cat: true, has_closed_garden: true, has_basket: false, has_kennel: false)
+User.create(id: "2", email: "test@gmail.com", password: "password", first_name: "Test", last_name: "User", phone: "54541010", address: "St.Pierre", has_dog: false, has_cat: false, has_closed_garden: false, has_basket: false, has_kennel: false)
+
 
 Animal.create(breed: "dog", name: "Pilou", age: 2, ok_sterilised: true, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Port-Louis", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 Animal.create(breed: "cat", name: "Tripod", age: 3, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Vacoas", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 Animal.create(breed: "dog", name: "Yoko", age: 4, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Tamarin", user: user1, compatibility: Animal::COMPATIBILITY.sample)
 Animal.create!(breed: "cat", name: "Caramel", age: 1, ok_sterilised: false, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Curepipe", user: user1, compatibility: Animal::COMPATIBILITY.sample)
-
-
