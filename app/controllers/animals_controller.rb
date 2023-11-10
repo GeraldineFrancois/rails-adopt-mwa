@@ -70,14 +70,12 @@ class AnimalsController < ApplicationController
 
 
   def toggle_favorite
-    @animal = Animal.find_by(id: params[:id])
+    @animal = Animal.find(params[:id])
     current_user.favorited?(@animal) ? current_user.unfavorite(@animal) : current_user.favorite(@animal)
-    redirect_to animals_path
+    redirect_to animals_path, notice: "Animal favorited successfully"
   end
 
-  def favorites
-    current_user.all_favorites
-  end
+  
   private
 
   def animal_params
