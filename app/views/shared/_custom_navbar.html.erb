@@ -33,8 +33,10 @@
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-        <div class="offcanvas-body">
+        <div class="offcanvas-body d-flex flex-column mt-3 border-top">
           <%= link_to "Profile page", user_path(current_user) %>
+          <%= link_to "Add an animal", new_animal_path %>
+          <%= link_to "Adoption requests", animals_path %>
         </div>
       </div>
     </ul>
