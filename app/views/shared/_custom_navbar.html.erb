@@ -25,19 +25,22 @@
             <i class="fa-solid fa-user<%= set_active_class?(user_path(current_user)) %>"></i>
           </a>
         </li>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column mt-3 border-top">
+          <%= link_to "Profile page", user_path(current_user) %>
+          <%= link_to "Add an animal", new_animal_path %>
+          <%= link_to "Adoption requests", animals_path %>
+        </div>
+      </div>
       <% else %>
         <li class="nav-item">
           <%= link_to "Login", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasExampleLabel">Offcanvas Test</h5>
-          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-        </div>
-      </div>
     </ul>
   </div>
 </nav>
