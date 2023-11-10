@@ -33,7 +33,7 @@
         <div class="offcanvas-body d-flex flex-column mt-3 border-top">
           <%= link_to "Profile page", user_path(current_user) %>
           <%= link_to "Add an animal", new_animal_path %>
-          <%= link_to "Adoption requests", animals_path %>
+          <%= link_to "Adoption request list", animal_adoptions_path(@animal) %>
         </div>
       </div>
       <% else %>

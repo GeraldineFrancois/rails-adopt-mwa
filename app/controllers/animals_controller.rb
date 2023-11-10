@@ -75,7 +75,7 @@ class AnimalsController < ApplicationController
     redirect_to animals_path, notice: "Animal favorited successfully"
   end
 
-  
+
   private
 
   def animal_params
