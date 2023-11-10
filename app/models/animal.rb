@@ -4,8 +4,9 @@ class Animal < ApplicationRecord
 
   belongs_to :user
   acts_as_favoritable
+  has_one_attached :photo
 
-  has_one :adoption
+  # has_one :adoption, dependent: :destroy
   # validates :breed, :name, :age, :ok_vaccinated, :behaviour, :location, presence: true
   validates :breed, inclusion: { in: %w(dog cat)}
   geocoded_by :location
