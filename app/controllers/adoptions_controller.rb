@@ -1,5 +1,5 @@
 class AdoptionsController < ApplicationController
-  before_action :set_animal, only: %i[create show new]
+  before_action :set_animal, only: %i[create show new index]
 
   def index
     @adoptions = current_user.adoptions
@@ -7,6 +7,7 @@ class AdoptionsController < ApplicationController
 
   def show
     @adoption = Adoption.find(params[:id])
+    # authorize @adoption
   end
 
   def new
@@ -18,7 +19,7 @@ class AdoptionsController < ApplicationController
     @adoption.animal = @animal
     @adoption.user = current_user
     if @adoption.save
-      redirect_to animal_adoption_path(@adoption.animal)
+      redirect_to animal_adoption_path(@animal, @adoption)
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,6 +29,10 @@ class AdoptionsController < ApplicationController
 
   def set_animal
     @animal = Animal.find(params[:animal_id])
+  end
+
+  def set_adoption
+    @adoption = Adoption.find(params[:id])
   end
 
   def adoption_params

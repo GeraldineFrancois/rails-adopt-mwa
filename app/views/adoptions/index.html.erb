@@ -1,1 +1,9 @@
 <h1>Adoptions page</h1>
+<ul>
+  <% @adoptions.each do |adoption| %>
+    <li>
+      <%= adoption.animal.name %>
+      <%= adoption.status %>
+    </li>
+  <% end %>
+</ul>
