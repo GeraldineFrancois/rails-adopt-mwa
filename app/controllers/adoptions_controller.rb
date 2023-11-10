@@ -1,13 +1,26 @@
 class AdoptionsController < ApplicationController
-  before_action :set_animal, only: %i[create]
+  before_action :set_animal, only: %i[create show new]
+
+  def index
+    @adoptions = current_user.adoptions
+  end
+
+  def show
+    @adoption = Adoption.find(params[:id])
+  end
+
+  def new
+    @adoption = Adoption.new
+  end
 
   def create
     @adoption = Adoption.new(adoption_params)
     @adoption.animal = @animal
+    @adoption.user = current_user
     if @adoption.save
-    redirect_to animal_path(@animal)
+      redirect_to animal_adoption_path(@adoption.animal)
     else
-      render "animals/show", status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :animals do
+    resources :favourites, only: [:index, :create, :destroy]
+    resources :adoptions, only: [:index, :show, :new, :create]
     member do
       post 'toggle_favorite', to: "animals#toggle_favorite"
     end

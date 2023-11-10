@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for [@animal, @adoption] do |f| %>
+    <%= f.input :start_date, class: "form-control" %>
+    <%= f.submit "Submit", class: "btn btn-primary" %>
+  <% end %>
+</div>
