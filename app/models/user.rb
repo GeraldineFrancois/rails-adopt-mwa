@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :animals, dependent: :destroy
 
   has_many :adoptions
-  acts_as_favoritor
+  # acts_as_favoritor
 
   validates :first_name, :last_name, :phone, :address, presence: true
   # Include default devise modules. Others available are:
