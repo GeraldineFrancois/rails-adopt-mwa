@@ -1,9 +1,0 @@
-const animalId = '<%= @animal.id%>'
-function toggleLikeButton(animalId, innerHTML) {
-  let likeButton = document.querySelector(`.like-icon[data-id='${animalId}']`)
-  likeButton.classList.toggle('red');
-}
-toggleLikeButton(animalId);
-
-<%= animal.favorited_by?(current_user) ? 'is favourite' : 'is not favourite' %>
-<%= if animal.favorited_by?(current_user) %>
