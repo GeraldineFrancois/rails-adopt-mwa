@@ -83,3 +83,4 @@ gem "cloudinary"
 gem "pundit"
 gem "geocoder"
 gem 'acts-as-taggable-on'
+gem 'acts_as_favoritor'
