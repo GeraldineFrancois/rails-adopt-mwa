@@ -8,8 +8,10 @@
       </li>
       <% if user_signed_in? %>
       <li class="nav-links">
-        <%= link_to animal_favourites_path(current_user), class: "" do %>
-          <i class="fa-solid fa-heart <%= set_active_class?(animal_favourites_path(current_user)) %>"></i>
+
+        <%= link_to favorites_user_path(current_user), class: "" do %>
+            <i class="fa-solid fa-heart <%= set_active_class?(favorites_user_path(current_user)) %>"></i>
+
         <% end %>
       </li>
       <li class="nav-links ">
