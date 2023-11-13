@@ -1,5 +1,7 @@
-<h2>Adoption request for <%= request.animal.name %></h2>
-<p>Start date: <%= request.start_date %></p>
+<h2>Adoption request for <%= @adoption.animal.name %></h2>
+<p>Start date: <%= @adoption.start_date %></p>
+<p>Adoption status: <%= @adoption.status %></p>
+
 
 <%= render "shared/profile_info", user: @adopter, state: @state %>
 

@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :animals do
     resources :favourites, only: [:index, :create, :destroy]
-    resources :adoptions, only: [:show, :new, :create, :show_my]
-    get "show_my", to: "adoptions#show_my", as: :adoption_requests
+    resources :adoptions, only: [:show, :new, :create]
+    get "show_my/:id", to: "adoptions#show_my", as: :adoption_requests
     member do
       post 'toggle_favorite', to: "animals#toggle_favorite"
     end
