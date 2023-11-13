@@ -8,9 +8,32 @@
 
 </div>
 <%# Carousel to be added %>
-  <div class="img-full-width">
-    <img src="https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699357227/2150644648_kaxr1b.jpg">
-  </div>
+
+  <%# <div class="img-full-width"> %>
+  <div id="carousel<%= @animal.id %>" class="carousel slide">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                 <% @animal.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+                    <%= cl_image_tag(photo.key, { crop: :fill }) %>
+                  </div>
+                 <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+    
+  <%# </div> %>
   <div class="d-grid gap-2 col-6 mx-auto">
     <%= link_to "Request for adoption", new_animal_adoption_path(@animal), class: "btn btn-warning" %>
   </div>
