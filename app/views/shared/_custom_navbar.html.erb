@@ -21,18 +21,19 @@
         <% end %>
       </li>
 
-        <li class="nav-links ">
-          <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
-            <i class="fa-solid fa-user<%= set_active_class?(user_path(current_user)) %>"></i>
-          </a>
-        </li>
+      <%# side bar %>
+      <li class="nav-links ">
+        <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
+          <i class="fa-solid fa-user<%= set_active_class?(user_path(current_user)) %>"></i>
+        </a>
+      </li>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div class="offcanvas-body d-flex flex-column mt-3 border-top">
-          <ul>
+          <ul class="user-index">
             <li class="d-flex justify-content-between"><%= link_to "Profile page", user_path(current_user) %> <i class="fa-solid fa-arrow-right-to-bracket"></i></li>
             <li class="d-flex justify-content-between"><%= link_to "Add an animal", new_animal_path %> <i class="fa-solid fa-plus"></i></li>
             <%# PROBLEM CHILD ___________________________________________________ %>
