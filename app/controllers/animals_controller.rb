@@ -2,10 +2,9 @@ class AnimalsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @animals = Animal.all
-
+    @animals = Animal.left_joins(:adoptions)
+                     .where('adoptions.status != ?', 'approved')
     @animals = policy_scope(Animal)
-
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,
