@@ -26,6 +26,22 @@ i.active {
   color: blue;
 }
 
-.user-index li {
-text-decoration: none;
+.user-index {
+  li {
+  padding: 15px;
+  font-size: 20px;
+  margin: 15px;
+  }
+  a {
+  text-decoration: none;
+  color: #000000;
+  }
+  i {
+    color: #ff9147;
+  }
+}
+
+#user {
+  border-bottom: #000000;
+  margin-bottom: 20px;
 }
