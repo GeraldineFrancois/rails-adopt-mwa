@@ -5,8 +5,8 @@ class Adoption < ApplicationRecord
   validates :start_date, presence: true
 
   enum status: {
-    approved: 'aprroved',
-    rejected: 'rejected',
+    approved: 'approve',
+    rejected: 'reject',
     pending: 'pending'
   }, _default: 'pending'
 end

@@ -2,6 +2,10 @@
 <p>Start date: <%= @adoption.start_date %></p>
 <p>Adoption status: <%= @adoption.status %></p>
 
+<%= simple_form_for [@animal, @adoption] do |f| %>
+  <%= f.input :status, as: :radio_buttons, collection: ["approve", "reject"] %>
+  <%= f.submit %>
+<% end %>
 
 <%= render "shared/profile_info", user: @adopter, state: @state %>
 
