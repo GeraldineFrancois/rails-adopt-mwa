@@ -84,3 +84,4 @@ gem "pundit"
 gem "geocoder"
 gem 'acts-as-taggable-on'
 gem 'acts_as_favoritor'
+gem 'open-uri'
