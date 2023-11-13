@@ -20,7 +20,7 @@ Rails.application.routes.draw do
     get 'favorites', to: "users#favorites", on: :member
   end
 
-  resources :chatrooms, only: :show do
+  resources :chatrooms, only: [:index, :show] do
     resources :messages, only: :create
   end
 end
