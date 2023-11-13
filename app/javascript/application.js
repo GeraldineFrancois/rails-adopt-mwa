@@ -6,13 +6,13 @@ import "bootstrap"
 import "@rails/actioncable"
 
 document.addEventListener("DOMContentLoaded", function() {
-  document.getElementById("show-all").addEventListener("click", function() {
+  document.getElementById("btnradio1").addEventListener("click", function() {
     showAllAnimalCards();
   });
-  document.getElementById("show-dogs").addEventListener("click", function() {
+  document.getElementById("btnradio2").addEventListener("click", function() {
     showFilteredAnimalCards("dog");
   });
-  document.getElementById("show-cats").addEventListener("click", function() {
+  document.getElementById("btnradio3").addEventListener("click", function() {
     showFilteredAnimalCards("cat");
   });
 });
