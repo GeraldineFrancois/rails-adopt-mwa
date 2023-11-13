@@ -67,8 +67,6 @@ animal4.photos.attach(io: caramel1, filename: "IMG_2769_xqmavt", content_type: "
 animal4.photos.attach(io: caramel2, filename: "IMG_3166_zy82qh", content_type: "image/jpg")
 animal4.photos.attach(io: caramel3, filename: "a4c4faef-4272-403e-9853-b3e3ceab7d36_oow47o", content_type: "image/jpg")
 
-# adoption1 = Adoption.create(start_date: "2023/10/26", status: "Accepted", user: user1, animal: animal1)
+adoption1 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal1)
 
-# Chatroom.create(name: "Pilou", adoption: adoption1)
-
-# Animals cloudinary images links
+Chatroom.create(name: "Pilou", adoption: adoption1)
