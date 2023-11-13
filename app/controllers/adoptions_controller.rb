@@ -3,11 +3,11 @@ class AdoptionsController < ApplicationController
 
   def index
     @adoptions = current_user.adoptions
+    @requests = current_user.animals.map(&:adoptions).flatten
   end
 
   def show
     @adoption = Adoption.find(params[:id])
-    # authorize @adoption
   end
 
   def new
