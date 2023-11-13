@@ -1,5 +1,5 @@
 class AdoptionsController < ApplicationController
-  before_action :set_animal, only: %i[create show new index]
+  before_action :set_animal, only: %i[create show new]
 
   def index
     @adoptions = current_user.adoptions
