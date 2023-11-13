@@ -11,5 +11,6 @@
   <%= f.input :compatibility, as: :check_boxes, collection: ["dog", "cat"], input_html: { class: "custom-class", type: "checkbox", data: { toggle: "toggle" } } %>
   <%= f.input :description %>
   <%= f.input :photo, as: :file, input_html: { multiple: true } %>
+  <%= f.input :location %>
   <%= f.submit %>
 <% end %>

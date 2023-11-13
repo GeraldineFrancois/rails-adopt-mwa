@@ -37,9 +37,9 @@
   <div class="d-grid gap-2 col-6 mx-auto">
     <%= link_to "Request for adoption", new_animal_adoption_path(@animal), class: "btn btn-warning" %>
   </div>
-  <div class="container">
-    <h2><%= @animal.name %></h2>
-    <ul class="">
+  <div class="container show">
+    <h1><%= @animal.name %></h1>
+    <ul class="align-left">
       <li><i class="fa-regular fa-heart"></i></li>
       <li><i class="fa-solid fa-share-nodes"></i></li>
     </ul>
@@ -52,7 +52,7 @@
       <li class="pill"><i class="fa-solid fa-fire"></i> Behaviour: <%= @animal.behaviour %></li>
       <li class="pill"><i class="fa-solid fa-heart-circle-plus"></i> Compatibility: <%= @animal.compatibility %></li>
     </ul>
-    <h3>Description</h3>
+    <h2>Description</h2>
     <p><%= @animal.description %></p>
 
       <%# t.boolean "ok_sterilised", default: false
@@ -64,7 +64,7 @@
       t.boolean "handicapped", default: false
       t.string "behaviour"
       t.string "compatibility" %>
-    <h3>Location</h3>
+    <h2>Location</h2>
     <div style="width: 250px; height: 200px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
