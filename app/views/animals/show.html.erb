@@ -1,38 +1,73 @@
 <div class="container">
-  <%= link_to "Back", animals_path %>
+  <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to "All animals", animals_path %></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= @animal.name %></li>
+    </ol>
+  </nav>
 
 </div>
-<%# Carousel %>
-  <div class="img-full-width"><img src="https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699357227/2150644648_kaxr1b.jpg"></div>
+<%# Carousel to be added %>
 
-  <%= link_to "Adopt this animal", new_animal_adoption_path(@animal) %>
+  <%# <div class="img-full-width"> %>
+  <div id="carousel<%= @animal.id %>" class="carousel slide">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                 <% @animal.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+                    <%= cl_image_tag(photo.key, { crop: :fill }) %>
+                  </div>
+                 <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= @animal.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+    
+  <%# </div> %>
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <%= link_to "Request for adoption", new_animal_adoption_path(@animal), class: "btn btn-warning" %>
+  </div>
+  <div class="container">
+    <h2><%= @animal.name %></h2>
+    <ul class="">
+      <li><i class="fa-regular fa-heart"></i></li>
+      <li><i class="fa-solid fa-share-nodes"></i></li>
+    </ul>
+    <%# Pills section %>
+    <ul class="column">
+      <li class="pill"><i class="fa-regular fa-calendar-xmark"></i> <%= @animal.age %> years</li>
+      <li class="pill"><i class="fa-solid fa-syringe"></i> Vaccinated: <%= @state[0] %></li>
+      <li class="pill"><i class="fa-solid fa-scissors"></i> Sterilised: <%= @state[1] %></li>
+      <li class="pill"><i class="fa-solid fa-briefcase-medical"></i> Handicapped: <%= @state[2] %></li>
+      <li class="pill"><i class="fa-solid fa-fire"></i> Behaviour: <%= @animal.behaviour %></li>
+      <li class="pill"><i class="fa-solid fa-heart-circle-plus"></i> Compatibility: <%= @animal.compatibility %></li>
+    </ul>
+    <h3>Description</h3>
+    <p><%= @animal.description %></p>
 
-<div class="container">
-  <h2><%= @animal.name %></h2>
-  <%# Pills section %>
-  <ul class="column">
-    <li class="pill"><i class="fa-regular fa-calendar-xmark"></i> <%= @animal.age %> years</li>
-    <li class="pill"><i class="fa-solid fa-syringe"></i> Vaccinated: <%= @state[0] %></li>
-    <li class="pill"><i class="fa-solid fa-scissors"></i> Sterilised: <%= @state[1] %></li>
-    <li class="pill"><i class="fa-solid fa-briefcase-medical"></i> Handicapped: <%= @state[2] %></li>
-    <li class="pill"><i class="fa-solid fa-fire"></i> Behaviour: <%= @animal.behaviour %></li>
-    <li class="pill"><i class="fa-solid fa-heart-circle-plus"></i> Compatibility: <%= @animal.compatibility %></li>
-  </ul>
-  <h3>Description</h3>
-  <p><%= @animal.description %></p>
-
-    <%# t.boolean "ok_sterilised", default: false
-    t.boolean "ok_vaccinated", default: false
-    t.string "location"
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "handicapped", default: false
-    t.string "behaviour"
-    t.string "compatibility" %>
-
-  <div style="width: 250px; height: 200px;"
-    data-controller="map"
-    data-map-markers-value="<%= @markers.to_json %>"
-    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-</div>
+      <%# t.boolean "ok_sterilised", default: false
+      t.boolean "ok_vaccinated", default: false
+      t.string "location"
+      t.bigint "user_id", null: false
+      t.datetime "created_at", null: false
+      t.datetime "updated_at", null: false
+      t.boolean "handicapped", default: false
+      t.string "behaviour"
+      t.string "compatibility" %>
+    <h3>Location</h3>
+    <div style="width: 250px; height: 200px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+  </div>

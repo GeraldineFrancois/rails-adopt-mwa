@@ -5,7 +5,7 @@ class Animal < ApplicationRecord
   belongs_to :user
   has_many :adoptions, dependent: :destroy
   acts_as_favoritable
-  has_one_attached :photo
+  has_many_attached :photos
 
   # validates :breed, :name, :age, :ok_vaccinated, :behaviour, :location, presence: true
   # validates :breed, inclusion: { in: %w(dog cat)}
