@@ -1,21 +1,16 @@
 class AnimalsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
 
-
-
   def index
-    @animals = Animal.all
-
+    @animals = Animal.left_joins(:adoptions)
+                     .where('adoptions.status != ?', 'approved')
     @animals = policy_scope(Animal)
-
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,
         lng: animal.longitude
       }
     end
-
   end
 
   def show
@@ -71,8 +66,14 @@ class AnimalsController < ApplicationController
 
   def toggle_favorite
     @animal = Animal.find(params[:id])
-    current_user.favorited?(@animal) ? current_user.unfavorite(@animal) : current_user.favorite(@animal)
-    redirect_to animals_path, notice: "Animal favorited successfully"
+
+    if current_user.favorited?(@animal)
+      current_user.unfavorite(@animal)
+      redirect_to animals_path, notice: "Animal unfavorited succesfully!"
+    else
+      current_user.favorite(@animal)
+      redirect_to animals_path, notice: "Animal favorited succesfully!"
+    end
   end
 
 

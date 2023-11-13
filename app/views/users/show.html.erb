@@ -1,26 +1,5 @@
-<div class="container show">
-  <h1>My adopter profile</h1>
-  <h2>My information</h2>
-  <ul>
-    <li>First name: <%= @user.first_name %></li>
-    <li>Last name: <%= @user.last_name %></li>
-    <li>Phone number: +230 <%= @user.phone %></li>
-    <li>Email: <%= @user.email %></li>
-  </ul>
-  <h2>My family</h2>
-  <h5>I have ...</h5>
-  <ul>
-    <li>A dog/dogs <%= @state[0] %></li>
-    <li>A cat/cats <%= @state[1] %></li>
-  </ul>
-  <h2>My space</h2>
-  <h5>I have ...</h5>
-  <ul>
-    <li>Closed garden <%= @state[2] %></li>
-    <li>Basket <%= @state[3] %></li>
-    <li>Dog kennel <%= @state[4] %></li>
-  </ul>
-  <%= link_to "Edit information", edit_user_path(current_user) %>
-  <%= link_to "My favorites", favorites_user_path(@user)  %>
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
-</div>
+<h1>Profile page</h1>
+<%= render "shared/profile_info", user: current_user, state: @state %>
+<%= link_to "Edit information", edit_user_path(current_user) %>
+<%= link_to "My favorites", favorites_user_path(@user)  %>
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>

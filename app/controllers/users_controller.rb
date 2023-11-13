@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def favorites
     @user = User.find(params[:id])
-    @favorite_animals = @user.all_favorites
+    @favorite_animals = @user.all_favorites.map { |favorite| Animal.find(favorite.favoritable_id) }
   end
 
   private

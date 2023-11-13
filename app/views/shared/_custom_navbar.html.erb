@@ -21,12 +21,13 @@
         <% end %>
       </li>
 
-      <%# side bar %>
-      <li class="nav-links ">
-        <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
-          <i class="fa-solid fa-user<%= set_active_class?(user_path(current_user)) %>"></i>
-        </a>
-      </li>
+
+        <li class="nav-links ">
+          <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
+            <i class="fa-solid fa-user <%= set_active_class?(user_path(current_user)) %>"></i>
+          </a>
+        </li>
+      
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
