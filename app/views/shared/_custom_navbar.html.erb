@@ -1,3 +1,4 @@
+<br><br><br>
 <nav class="custom-nav">
   <div class="custom-nav-container">
     <ul class="custom-nav-links">
@@ -33,7 +34,8 @@
         <div class="offcanvas-body d-flex flex-column mt-3 border-top">
           <%= link_to "Profile page", user_path(current_user) %>
           <%= link_to "Add an animal", new_animal_path %>
-          <%= link_to "Adoption requests", animals_path %>
+          <%# PROBLEM CHILD ___________________________________________________ %>
+          <%= link_to "Adoption requests list", adoptions_path %>
         </div>
       </div>
       <% else %>

@@ -3,6 +3,7 @@ class AdoptionsController < ApplicationController
 
   def index
     @adoptions = current_user.adoptions
+    @requests = current_user.animals.map(&:adoptions).flatten
   end
 
   def show
@@ -18,7 +19,7 @@ class AdoptionsController < ApplicationController
     @adoption.animal = @animal
     @adoption.user = current_user
     if @adoption.save
-      redirect_to animal_adoption_path(@adoption.animal)
+      redirect_to animal_adoption_path(@animal, @adoption)
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,6 +29,10 @@ class AdoptionsController < ApplicationController
 
   def set_animal
     @animal = Animal.find(params[:animal_id])
+  end
+
+  def set_adoption
+    @adoption = Adoption.find(params[:id])
   end
 
   def adoption_params

@@ -3,12 +3,12 @@ class Animal < ApplicationRecord
   BEHAVIOURS = %w[playful calm aggressive]
 
   belongs_to :user
+  has_many :adoptions, dependent: :destroy
   acts_as_favoritable
   has_many_attached :photos
 
-  # has_one :adoption, dependent: :destroy
   # validates :breed, :name, :age, :ok_vaccinated, :behaviour, :location, presence: true
-  validates :breed, inclusion: { in: %w(dog cat)}
+  # validates :breed, inclusion: { in: %w(dog cat)}
   geocoded_by :location
   after_validation :geocode, if: :will_save_change_to_location?
 
