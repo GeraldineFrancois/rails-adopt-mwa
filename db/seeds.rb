@@ -9,8 +9,8 @@ require "open-uri"
 
 # destroying all before seeding again to avoid duplicates...
 
-User.destroy_all
-Animal.destroy_all
+# User.destroy_all
+# Animal.destroy_all
 
 # opening photos for the animals...
 
@@ -38,7 +38,7 @@ user2 = User.create(email: "ansaar@gmail.com", password: "1234567", first_name: 
 
 
 # creating animals and attaching the photos to the animals...
-animal1 = Animal.create(breed: "dog", name: "Pilou", age: 2, ok_sterilised: true, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Port-Louis", user: User.first, compatibility: Animal::COMPATIBILITY.sample)
+animal1 = Animal.create(breed: "dog", name: "Pilou", age: 2, ok_sterilised: true, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Port-Louis, Mauritius", user: User.first, compatibility: Animal::COMPATIBILITY.sample)
 
 animal1.photos.attach(io: pilou1, filename: "IMG_2738_tx2cof", content_type: "image/jpg")
 animal1.photos.attach(io: pilou2, filename: "IMG_2206_gbgmid", content_type: "image/jpg")
@@ -46,7 +46,7 @@ animal1.photos.attach(io: pilou3, filename: "IMG_2209_a8vcql", content_type: "im
 
 
 
-animal2 = Animal.create(breed: "cat", name: "Tripod", age: 3, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Vacoas", user: User.first, compatibility: Animal::COMPATIBILITY.sample)
+animal2 = Animal.create(breed: "cat", name: "Tripod", age: 3, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Vacoas, Mauritius", user: User.first, compatibility: Animal::COMPATIBILITY.sample)
 
 animal2.photos.attach(io: tripod1, filename: "IMG_8967_fw1vrj", content_type: "image/jpg")
 animal2.photos.attach(io: tripod2, filename: "IMG_1439_ijye08", content_type: "image/jpg")
@@ -54,14 +54,14 @@ animal2.photos.attach(io: tripod3, filename: "IMG_1407_jn8lrd", content_type: "i
 
 
 
-animal3 = Animal.create(breed: "dog", name: "Yoko", age: 4, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Tamarin", user: User.first, compatibility: Animal::COMPATIBILITY.sample)
+animal3 = Animal.create(breed: "dog", name: "Yoko", age: 4, ok_sterilised: true, ok_vaccinated: true, handicapped: true, behaviour: Animal::BEHAVIOURS.sample, location: "Tamarin, Mauritius", user: User.first, compatibility: Animal::COMPATIBILITY.sample, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper nulla id volutpat faucibus. Proin semper facilisis felis in pharetra. Morbi consequat dolor at finibus gravida. Nulla cursus a lacus sit amet vulputate.")
 
 animal3.photos.attach(io: yoko1, filename: "IMG_3559_celodi", content_type: "image/jpg")
 animal3.photos.attach(io: yoko2, filename: "IMG_3560_e45eb6", content_type: "image/jpg")
 animal3.photos.attach(io: yoko3, filename: "IMG_3558_m7af5n", content_type: "image/jpg")
 
 
-animal4 = Animal.create(breed: "cat", name: "Caramel", age: 1, ok_sterilised: false, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Curepipe", user: User.first, compatibility: Animal::COMPATIBILITY.sample)
+animal4 = Animal.create(breed: "cat", name: "Caramel", age: 1, ok_sterilised: false, ok_vaccinated: true, handicapped: false, behaviour: Animal::BEHAVIOURS.sample, location: "Curepipe, Mauritius", user: User.first, compatibility: Animal::COMPATIBILITY.sample, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam ullamcorper nulla id volutpat faucibus. Proin semper facilisis felis in pharetra. Morbi consequat dolor at finibus gravida. Nulla cursus a lacus sit amet vulputate.")
 
 animal4.photos.attach(io: caramel1, filename: "IMG_2769_xqmavt", content_type: "image/jpg")
 animal4.photos.attach(io: caramel2, filename: "IMG_3166_zy82qh", content_type: "image/jpg")
