@@ -23,7 +23,7 @@
 
         <li class="nav-links ">
           <a data-bs-toggle="offcanvas" href="#offcanvasRight" role="button" aria-controls="offcanvasRight">
-            <i class="fa-solid fa-user<%= set_active_class?(user_path(current_user)) %>"></i>
+            <i class="fa-solid fa-user <%= set_active_class?(user_path(current_user)) %>"></i>
           </a>
         </li>
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">

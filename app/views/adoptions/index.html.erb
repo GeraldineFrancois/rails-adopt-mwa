@@ -1,9 +1,21 @@
-<h1>Adoptions page</h1>
-<ul>
-  <% @adoptions.each do |adoption| %>
-    <li>
-      <%= adoption.animal.name %>
-      <%= adoption.status %>
-    </li>
-  <% end %>
-</ul>
+<div class="container mt-3">
+  <h3>My adoption requests</h3>
+  <ul class="list-group">
+    <% @adoptions.each do |adoption| %>
+      <li class="list-group-item d-flex justify-content-between">
+        <%= link_to adoption.animal.name, animal_adoption_path(adoption.animal, adoption)%>
+        <%= adoption.status %>
+      </li>
+    <% end %>
+  </ul>
+  <br>
+  <h3>Requests for my animals</h3>
+  <ul class="list-group">
+    <% @requests.each do |request| %>
+      <li class="list-group-item d-flex justify-content-between">
+        <%= link_to request.animal.name, animal_adoption_requests_path(request.animal) %>
+        <%= request.status %>
+      </li>
+    <% end %>
+  </ul>
+</div>

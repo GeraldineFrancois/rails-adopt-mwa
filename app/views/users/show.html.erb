@@ -1,17 +1,5 @@
 <h1>Profile page</h1>
-<h4>First name: <%= @user.first_name %></h4>
-<h4>Last name: <%= @user.last_name %></h4>
-<h6>Phone number: +230 <%= @user.phone %></h6>
-<h6>Email: <%= @user.email %></h6>
-<h3>My family</h3>
-<h5>I have ...</h5>
-<p>A dog/dogs <%= @state[0] %></p>
-<p>A cat/cats <%= @state[1] %></p>
-<h3>My space</h3>
-<h5>I have ...</h5>
-<p>Closed garden <%= @state[2] %></p>
-<p>Basket <%= @state[3] %></p>
-<p>Dog kennel <%= @state[4] %></p>
+<%= render "shared/profile_info", user: current_user, state: @state %>
 <%= link_to "Edit information", edit_user_path(current_user) %>
 <%= link_to "My favorites", favorites_user_path(@user)  %>
- <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+<%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>

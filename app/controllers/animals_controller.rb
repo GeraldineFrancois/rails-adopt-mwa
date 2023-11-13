@@ -1,8 +1,5 @@
 class AnimalsController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
-
-
 
   def index
     @animals = Animal.all
@@ -15,7 +12,6 @@ class AnimalsController < ApplicationController
         lng: animal.longitude
       }
     end
-
   end
 
   def show

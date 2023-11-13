@@ -1,0 +1,6 @@
+<h2>Adoption request for <%= request.animal.name %></h2>
+<p>Start date: <%= request.start_date %></p>
+
+<%= render "shared/profile_info", user: @adopter, state: @state %>
+
+<%= link_to "Back to adoption requests", adoptions_path %>
