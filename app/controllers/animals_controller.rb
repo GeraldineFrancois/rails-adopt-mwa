@@ -4,7 +4,12 @@ class AnimalsController < ApplicationController
   def index
     @animals = Animal.left_joins(:adoptions)
                      .where('adoptions.status != ?', 'approved')
-    @animals = policy_scope(Animal)
+# my animals
+  def my_animals
+    @user_animals = current_user.animals
+  end
+
+  @animals = policy_scope(Animal)
     @markers = @animals.geocoded.map do |animal|
       {
         lat: animal.latitude,
