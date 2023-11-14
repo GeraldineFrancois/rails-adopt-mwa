@@ -27,7 +27,7 @@
             <i class="fa-solid fa-user <%= set_active_class?(user_path(current_user)) %>"></i>
           </a>
         </li>
-      
+
       <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasExampleLabel">Menu</h5>
@@ -38,7 +38,7 @@
             <ul class="user-index">
               <li class="d-flex justify-content-between" id="user"><%= link_to "#{current_user.first_name}'s profile", user_path(current_user) %> <i class="fa-solid fa-arrow-right-to-bracket"></i></li>
               <li class="d-flex justify-content-between"><%= link_to "Add an animal", new_animal_path %> <i class="fa-solid fa-plus"></i></li>
-              <li class="d-flex justify-content-between"><%= link_to "My animals", animals_path(current_user) %> <i class="fa-solid fa-list"></i></li>
+              <li class="d-flex justify-content-between"><%= link_to "My animals", user_my_animals_path(current_user) %> <i class="fa-solid fa-list"></i></li>
               <%# PROBLEM CHILD ___________________________________________________ %>
               <li class="d-flex justify-content-between"><%= link_to "Adoption requests list", adoptions_path %> <i class="fa-brands fa-wpforms"></i></li>
             </ul>
