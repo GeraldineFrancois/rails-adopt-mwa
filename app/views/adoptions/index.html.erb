@@ -11,50 +11,54 @@
     </li>
   </ul>
 </div>
+
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-
     <div class="container mt-3">
       <h3>My adoption requests</h3>
-      <ul class="list-group">
+      <div class="request-list">
         <% @adoptions.each do |adoption| %>
-          <li class="list-group-item d-flex justify-content-between">
-            <%= link_to adoption.animal.name, animal_adoption_path(adoption.animal, adoption)%>
-            <%= adoption.status %>
-          </li>
+          <%= link_to animal_adoption_path(adoption.animal, adoption), class: 'card-request' do %>
+            <div class="card-request-info">
+              <p class="m-0 p-0"><%= adoption.animal.name %></p>
+            </div>
+          <% end %>
         <% end %>
-      </ul>
+      </div>
       <br>
       <h3>Requests for my animals</h3>
-      <ul class="list-group">
+      <ul class="request-list">
         <% @requests.each do |request| %>
-          <li class="list-group-item d-flex justify-content-between">
-            <%= link_to request.animal.name, animal_adoption_requests_path(request.animal, request.id) %>
-            <%= request.status %>
-          </li>
+          <%= link_to animal_adoption_requests_path(request.animal, request.id), class: 'card-request' do %>
+            <div class="card-request-info">
+              <p class="m-0 p-0"><%= request.animal.name %></p>
+            </div>
+          <% end %>
         <% end %>
       </ul>
     </div>
   </div>
     <div class="container tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
       <h3>My adoption requests</h3>
-        <ul class="list-group">
+        <ul class="request-list">
           <% @adoptions.each do |adoption| %>
-            <li class="list-group-item d-flex justify-content-between">
-              <%= link_to adoption.animal.name, animal_adoption_path(adoption.animal, adoption)%>
-              <%= adoption.status %>
-            </li>
+            <%= link_to animal_adoption_path(adoption.animal, adoption), class: 'card-request' do %>
+              <div class="card-request-info">
+                <p class="m-0 p-0"><%= adoption.animal.name %></p>
+              </div>
+            <% end %>
           <% end %>
         </ul>
     </div>
     <div class="container tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
       <h3>Requests for my animals</h3>
-        <ul class="list-group">
+        <ul class="request-list">
           <% @requests.each do |request| %>
-            <li class="list-group-item d-flex justify-content-between">
-              <%= link_to request.animal.name, animal_adoption_requests_path(request.animal, request.id) %>
-              <%= request.status %>
-            </li>
+            <%= link_to animal_adoption_requests_path(request.animal, request.id), class: 'card-request' do %>
+              <div class="card-request-info">
+                <p class="m-0 p-0"><%= request.animal.name %></p>
+              </div>
+            <% end %>
           <% end %>
         </ul>
     </div>
