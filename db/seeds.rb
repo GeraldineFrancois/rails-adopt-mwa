@@ -9,8 +9,8 @@ require "open-uri"
 
 # destroying all before seeding again to avoid duplicates...
 
-# User.destroy_all
-# Animal.destroy_all
+User.destroy_all
+Animal.destroy_all
 
 # opening photos for the animals...
 
