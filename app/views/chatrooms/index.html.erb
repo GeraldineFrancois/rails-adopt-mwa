@@ -1,9 +1,36 @@
-<h1>Chatrooms#index</h1>
-<p>Find me in app/views/chatrooms/index.html.erb</p>
+<style>
+  /* Styling for the body */
+  body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column; /* Replace with your desired background color */
+  }
+</style>
 
-<ol>
 
+
+
+
+
+
+
+
+
+
+<h1 id="chat-title">Chatrooms</h1>
+<ul id="chat-list">
   <% @chatrooms.each do |c| %>
-    <li><%= link_to c.name, chatroom_path(c) %></li>
+    <li id="list-item">
+      <div class="chatroom-icon">
+        <i class="fas fa-comments"></i> <!-- Replace with appropriate icon -->
+      </div>
+      <a href="<%= chatroom_path(c) %>" id="link"><%= c.name %></a>
+    </li>
   <% end %>
-</ol>
+</ul>
