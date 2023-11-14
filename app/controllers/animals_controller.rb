@@ -4,7 +4,7 @@ class AnimalsController < ApplicationController
   def index
     @animals = Animal.left_joins(:adoptions)
                      .where('adoptions.status != ?', 'approved')
-
+# my animals
   def my_animals
     @user_animals = current_user.animals
   end
