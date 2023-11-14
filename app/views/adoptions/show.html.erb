@@ -1,5 +1,6 @@
-<h2>My <%=link_to @animal.name, animal_path(@animal)%> adoption request</h2>
-<p>Status: <%= @adoption.status %></p>
-<p>Start date: <%= @adoption.start_date %></p>
-<%= link_to "Back to adoption requests", adoptions_path %>
-<%# <%= link_to "Cancel my request", adoptions_path, data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+<div class="container-request">
+  <h2>My <%=link_to @animal.name, animal_path(@animal)%> adoption request</h2>
+  <p>Status: <%= @adoption.status %></p>
+  <p>Start date: <%= @adoption.start_date %></p>
+  <%= link_to "Back to adoption requests", adoptions_path %>
+</div>

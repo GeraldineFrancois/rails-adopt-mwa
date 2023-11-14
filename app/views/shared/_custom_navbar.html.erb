@@ -35,14 +35,13 @@
         </div>
         <div class="container">
           <div class="offcanvas-body d-flex flex-column mt-3 border-top">
-            <ul class="user-index">
+            <ul class="user-index p-0">
               <li class="d-flex justify-content-between" id="user"><%= link_to "#{current_user.first_name}'s profile", user_path(current_user) %> <i class="fa-solid fa-arrow-right-to-bracket"></i></li>
               <li class="d-flex justify-content-between"><%= link_to "Add an animal", new_animal_path %> <i class="fa-solid fa-plus"></i></li>
               <li class="d-flex justify-content-between"><%= link_to "My animals", user_my_animals_path(current_user) %> <i class="fa-solid fa-list"></i></li>
-              <%# PROBLEM CHILD ___________________________________________________ %>
               <li class="d-flex justify-content-between"><%= link_to "Adoption requests list", adoptions_path %> <i class="fa-brands fa-wpforms"></i></li>
             </ul>
-            </br>
+            <br>
             <div class="d-grid gap-2 col-6 mx-auto">
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
             </div>
