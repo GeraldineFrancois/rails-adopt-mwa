@@ -2,8 +2,10 @@ require "open-uri"
 
 # destroying all before seeding again to avoid duplicates...
 
-# User.destroy_all
-# Animal.destroy_all
+User.destroy_all
+Animal.destroy_all
+
+puts "Users destroyed"
 
 # opening photos for the animals...
 
@@ -24,10 +26,14 @@ pilou1= URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699611099/
 pilou2= URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699611098/chiens/IMG_2206_gbgmid.jpg")
 pilou3= URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699611098/chiens/IMG_2209_a8vcql.jpg")
 
+puts "Photos opened"
+
 # creating users...
 
-user1 = User.create(email: "jenapotayah@gmail.com", password: "1234567", first_name: "Jena", last_name: "Potayah", phone: "58486292", address: "Quatre-Bornes", has_dog: false, has_cat: true, has_closed_garden: true, has_basket: false, has_kennel: false)
-user2 = User.create(email: "ansaar@gmail.com", password: "1234567", first_name: "Ansaar", last_name: "Ramkoleea", phone: "59845839", address: "Phoenix", has_dog: false, has_cat: true, has_closed_garden: false, has_basket: false, has_kennel: false)
+user1 = User.create!(email: "jenapotayah@gmail.com", password: "1234567", first_name: "Jena", last_name: "Potayah", phone: "58486292", address: "Quatre-Bornes", has_dog: false, has_cat: true, has_closed_garden: true, has_basket: false, has_kennel: false)
+user2 = User.create!(email: "ansaar@gmail.com", password: "1234567", first_name: "Ansaar", last_name: "Ramkoleea", phone: "59845839", address: "Phoenix", has_dog: false, has_cat: true, has_closed_garden: false, has_basket: false, has_kennel: false)
+
+puts "Users created"
 
 
 # creating animals and attaching the photos to the animals...
@@ -60,8 +66,13 @@ animal4.photos.attach(io: caramel1, filename: "IMG_2769_xqmavt", content_type: "
 animal4.photos.attach(io: caramel2, filename: "IMG_3166_zy82qh", content_type: "image/jpg")
 animal4.photos.attach(io: caramel3, filename: "a4c4faef-4272-403e-9853-b3e3ceab7d36_oow47o", content_type: "image/jpg")
 
+
 adoption1 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal1)
 adoption2 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal3)
+
+puts "Animals created, photos attached"
+
+
 
 Chatroom.create(name: "Pilou", adoption: adoption1)
 Chatroom.create(name: "Yoko", adoption: adoption2)
