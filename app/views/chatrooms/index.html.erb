@@ -1,1 +1,9 @@
-<h1>All chatrooms</h1>
+<h1>Chatrooms#index</h1>
+<p>Find me in app/views/chatrooms/index.html.erb</p>
+
+<ol>
+
+  <% @chatrooms.each do |c| %>
+    <li><%= link_to c.name, chatroom_path(c) %></li>
+  <% end %>
+</ol>
