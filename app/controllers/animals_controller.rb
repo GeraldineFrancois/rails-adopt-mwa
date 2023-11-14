@@ -13,6 +13,10 @@ class AnimalsController < ApplicationController
     end
   end
 
+  def my_animals
+    @user_animals = current_user.animals
+  end
+
   def show
     @animal = Animal.find(params[:id])
     authorize @animal

@@ -1,51 +1,50 @@
-<h1>My favorites</h1>
-
-<div class="col-xs-12 col-sm-6">
-  <h3>Liked Animals</h3>
-    <div class="favorites">
-      <% @favorite_animals.each do |animal| %>
-         <div data-category="<%= animal.id %>" class="card">
-      <div id="carousel<%= animal.id %>" class="carousel slide">
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
-            </div>
-            <div class="carousel-inner">
-               <% animal.photos.each_with_index do |photo, index| %>
-                  <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
-                    <%= cl_image_tag(photo.key, { width: 300, height: 200, crop: :fill }) %>
-                  </div>
-                 <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= animal.name %></h5>
-        <% if animal.age == 1 %>
-            <p class="card-text"><%= animal.age %> year</p>
-
-          <% else %>
-            <p class="card-text"><%= animal.age %> years</p>
-          <% end %>
-          <%= link_to "Show more details", animal_path(animal), class:"btn btn-outline-primary w-100" %>
-
-        <%= link_to(
-          toggle_favorite_animal_path(animal),
-          data: {turbo_method: :post}) do
-        %>
-
-          <i class="fas fa-heart <%= animal.favorited_by?(current_user) ? 'favorite' : '' %>"></i>
-        <% end %>
+<h3>Liked Animals</h3>
+<div class="favorites">
+  <% @favorite_animals.each do |animal| %>
+  <div data-category="<%= animal.id %>" class="card" id="card-pet">
+    <div id="carousel<%= animal.id %>" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
+      <div class="carousel-inner">
+          <% animal.photos.each_with_index do |photo, index| %>
+            <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+              <%= cl_image_tag(photo.key, { width: 300, height: 200, crop: :fill }) %>
+            </div>
+            <% end %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-      <% end %>
+    <div class="card-body">
+      <div class="d-flex flex-row justify-content-between align-items-center">
+        <div>
+          <h5 class="card-title"><%= animal.name %></h5>
+          <% if animal.age == 1 %>
+            <p class="card-text"><%= animal.age %> year old</p>
+          <% else %>
+            <p class="card-text"><%= animal.age %> years old</p>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to(
+            toggle_favorite_animal_path(animal),
+            data: {turbo_method: :post}) do
+          %>
+            <i class="fas fa-heart <%= animal.favorited_by?(current_user) ? 'favorite' : '' %>"></i>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to "Show more details", animal_path(animal), class:"btn btn-outline-primary w-100 mt-2" %>
     </div>
+  </div>
+  <% end %>
 </div>

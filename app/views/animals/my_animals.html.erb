@@ -11,11 +11,10 @@
     </li>
   </ul>
 </div>
+
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
-
-    <% @animals.each do |animal| %>
-
+    <% @user_animals.each do |animal| %>
       <div class="card" id="card-pet">
         <div id="carousel<%= animal.id %>" class="carousel slide">
               <div class="carousel-indicators">
@@ -26,7 +25,7 @@
               <div class="carousel-inner">
                  <% animal.photos.each_with_index do |photo, index| %>
                   <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
-                    <%= cl_image_tag(photo.key) %>
+                    <%= cl_image_tag(photo.key, { crop: :fill }) %>
                   </div>
                  <% end %>
               </div>
@@ -45,7 +44,6 @@
               <h5 class="card-title"><%= animal.name %></h5>
               <% if animal.age == 1 %>
                 <p class="card-text"><%= animal.age %> year old</p>
-
               <% else %>
                 <p class="card-text"><%= animal.age %> years old</p>
               <% end %>
@@ -69,7 +67,7 @@
   </div>
 
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-    <% @animals.where(breed: "dog").each do |animal| %>
+    <% @user_animals.where(breed: "dog").each do |animal| %>
 
       <div class="card" id="card-pet">
         <div id="carousel<%= animal.id %>" class="carousel slide">
@@ -100,7 +98,6 @@
               <h5 class="card-title"><%= animal.name %></h5>
               <% if animal.age == 1 %>
                 <p class="card-text"><%= animal.age %> year old</p>
-
               <% else %>
                 <p class="card-text"><%= animal.age %> years old</p>
               <% end %>
@@ -124,8 +121,7 @@
   </div>
 
   <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-    <% @animals.where(breed: "cat").each do |animal| %>
-
+    <% @user_animals.where(breed: "cat").each do |animal| %>
       <div class="card" id="card-pet">
         <div id="carousel<%= animal.id %>" class="carousel slide">
               <div class="carousel-indicators">
@@ -155,7 +151,6 @@
               <h5 class="card-title"><%= animal.name %></h5>
               <% if animal.age == 1 %>
                 <p class="card-text"><%= animal.age %> year old</p>
-
               <% else %>
                 <p class="card-text"><%= animal.age %> years old</p>
               <% end %>
@@ -172,14 +167,9 @@
               <% end %>
             </div>
           </div>
-          <%= link_to "Show more details", animal_path(animal), class:"btn btn-outline-primary w-100 mt-2" %>
+          <%= link_to "Show more details", animal_path(animal), class:"btn btn-outline-primary w-100" %>
         </div>
       </div>
     <% end %>
-
-
-
-
   </div>
-
 </div>

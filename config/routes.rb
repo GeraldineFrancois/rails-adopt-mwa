@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :edit, :update] do
     get 'favorites', to: "users#favorites", on: :member
+    get 'my_animals', to: "animals#my_animals"
   end
 
   resources :chatrooms, only: [:index, :show] do
