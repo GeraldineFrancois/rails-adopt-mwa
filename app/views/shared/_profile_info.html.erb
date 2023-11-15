@@ -1,7 +1,11 @@
 <div id="profile-details">
   <div id="container-profile-image">
-    <% user.photos.each do |photo| %>
-      <%= cl_image_tag photo.key, height: 1000, width: 1000, crop: :fill %>
+    <% if current_user.photos.attached?%>
+      <% current_user.photos.each do |photo| %>
+        <%= cl_image_tag photo.key, height: 1000, width: 1000, crop: :fill %>
+      <% end %>
+    <% else %>
+      <%= image_tag "user.svg", class: "img-placeholder" %>
     <% end %>
   </div>
   <div id="container-info">
