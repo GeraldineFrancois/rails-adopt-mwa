@@ -19,3 +19,27 @@
   margin-top: 5%;;
   // top: 70%;
 }
+
+.breadcrumb-bar{
+display: flex;
+justify-content: space-between;
+align-items: center;
+/* height: 60px; */
+padding: 10px 0;
+}
+
+.breadcrumb-bar ol {
+  margin: 0;
+}
+
+.animal-show-btn-container {
+  display: flex;
+}
+
+.animal-name-bar {
+  align-items: center;
+}
+
+.animal-name-bar i{
+  font-size: 1.5rem;
+}

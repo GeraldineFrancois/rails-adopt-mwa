@@ -1,12 +1,16 @@
 <div class="container show">
-  <div class="column">
-    <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><%= link_to "All animals", animals_path %></li>
-        <li class="breadcrumb-item active" aria-current="page"><%= @animal.name %></li>
-      </ol>
-    </nav>
-    <div class="align-right">
+  <div class="breadcrumb-bar">
+    <div class="">
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><%= link_to "All animals", animals_path %></li>
+          <li class="breadcrumb-item active" aria-current="page"><%= @animal.name %></li>
+        </ol>
+      </nav>
+    </div>
+
+  <div class="animal-show-btn-container">
+    <div class="p-2">
       <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal">
           Edit
@@ -29,8 +33,9 @@
             </div>
           </div>
         </div>
+    </div>
 
-
+    <div class="p-2">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
           Delete
@@ -53,11 +58,12 @@
             </div>
           </div>
         </div>
-      </div>
+    </div>
+  </div>
   </div>
 </div>
 
-<%# Carousel to be added %>
+<%# Carousel %>
 
   <%# <div class="img-full-width"> %>
   <div id="carousel<%= @animal.id %>" class="carousel slide img-full-width">
@@ -87,13 +93,19 @@
 
 
   <div class="container show">
-    <div class="column">
+
+    <div class="d-flex my-2 animal-name-bar">
       <h1><%= @animal.name %></h1>
       <ul class="align-right" id="share">
-        <li><i class="fa-regular fa-heart"></i></li>
-        <li><i class="fa-solid fa-share-nodes"></i></li>
+        <div class="p-2">
+          <li><i class="fa-regular fa-heart"></i></li>
+        </div>
+        <div class="p-2">
+          <li><i class="fa-solid fa-share-nodes"></i></li>
+        </div>
       </ul>
     </div>
+
     <%# Pills section %>
     <ul class="column">
       <li class="pill"><i class="fa-regular fa-calendar-xmark"></i> <%= @animal.age %> years</li>
@@ -109,15 +121,12 @@
     <h2>Description</h2>
     <p><%= @animal.description %></p>
 
-      <%# t.boolean "ok_sterilised", default: false
-      t.boolean "ok_vaccinated", default: false
-      t.string "location"
-      t.bigint "user_id", null: false
-      t.datetime "created_at", null: false
-      t.datetime "updated_at", null: false
-      t.boolean "handicapped", default: false
-      t.string "behaviour"
-      t.string "compatibility" %>
+
+    <div class="d-grid gap-2 col-6 mx-auto btn-sticky">
+      <%= link_to "Adopt #{@animal.name}", new_animal_adoption_path(@animal), class: "btn btn-warning" %>
+    </div>
+
+
     <h2>Location</h2>
     <div style="width: 100%; height: 200px;"
       data-controller="map"
@@ -125,8 +134,4 @@
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
 
   </div>
-
-    <div class="d-grid gap-2 col-6 mx-auto btn-sticky">
-      <%= link_to "Adopt #{@animal.name}", new_animal_adoption_path(@animal), class: "btn btn-warning" %>
-    </div>
 </div>
