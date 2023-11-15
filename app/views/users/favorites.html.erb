@@ -1,8 +1,8 @@
-<h3>Liked Animals</h3>
+<h3>My favorites</h3>
 <div class="favorites">
   <% @favorite_animals.each do |animal| %>
   <div data-category="<%= animal.id %>" class="card" id="card-pet">
-    <div id="carousel<%= animal.id %>" class="carousel slide">
+    <div id="carousel<%= animal.id %>" class="carousel slide img-full-width">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carousel<%= animal.id %>" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -11,7 +11,7 @@
       <div class="carousel-inner">
           <% animal.photos.each_with_index do |photo, index| %>
             <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
-              <%= cl_image_tag(photo.key, { width: 300, height: 200, crop: :fill }) %>
+              <%= cl_image_tag(photo.key, { crop: :fill }) %>
             </div>
             <% end %>
       </div>
