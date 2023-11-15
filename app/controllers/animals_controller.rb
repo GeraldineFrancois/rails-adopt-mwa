@@ -40,6 +40,7 @@ class AnimalsController < ApplicationController
     @animal = Animal.new(animal_params)
     authorize @animal
     @animal.user = current_user
+
     if @animal.save
       redirect_to animal_path(@animal)
     else
@@ -49,19 +50,19 @@ class AnimalsController < ApplicationController
 
   def edit
     @animal = Animal.find(params[:id])
-    authorize @animal
+    # authorize @animal
   end
 
   def update
     @animal = Animal.find(params[:id])
-    authorize @animal
+    # authorize @animal
     @animal.update(animal_params)
     redirect_to animal_path(@animal)
   end
 
   def destroy
     @animal = Animal.find(params[:id])
-    authorize @animal
+    # authorize @animal
     @animal.destroy
 
     redirect_to animals_path, status: :see_other
@@ -84,7 +85,10 @@ class AnimalsController < ApplicationController
   private
 
   def animal_params
-    params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :ok_vaccinated, :handicapped,  :ok_cat, :ok_play, :ok_calm, :description, :location, photos: [])
+    params.require(:animal).permit(:name, :breed, :age, :ok_sterilised, :behaviour, :compatibility,
+                                   :ok_vaccinated, :handicapped,  :ok_cat,
+                                   :ok_play, :ok_calm, :description, :location, photos: []
+                                  )
   end
 
 end

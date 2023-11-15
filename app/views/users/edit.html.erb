@@ -9,6 +9,7 @@
       <%= f.input :has_closed_garden, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
       <%= f.input :has_basket, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
       <%= f.input :has_kennel, as: :select, collection: [['Yes',true], ['No',false]], required: true %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
       <%= f.button :submit, "Confirm changes", class: "btn btn-outline-primary" %>
     <% end %>
   </div>
