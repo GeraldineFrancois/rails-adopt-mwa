@@ -25,6 +25,7 @@
   background-color: rgb(43, 186, 211);
   height: 200px;
   display: flex;
+  flex-direction: column; /* Align items in a column */
   justify-content: center;
   align-items: center;
   color: white;
@@ -41,5 +42,25 @@
   color: white;
   font-size: 15px;
   text-align: center;
+  flex-direction: column;
 }
 
+.icon i {
+  font-size: 40px; /* Adjust icon size */
+}
+
+.icon2 i {
+  font-size: 40px; /* Adjust icon size */
+}
+
+.icon{
+  margin-bottom: 20px;
+}
+
+.icon2{
+  margin-bottom: 20px;
+}
+
+.card {
+  text-align: center;
+}

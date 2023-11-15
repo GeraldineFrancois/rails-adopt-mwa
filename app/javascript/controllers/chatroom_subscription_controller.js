@@ -1,7 +1,6 @@
 import { Controller } from "@hotwired/stimulus"
 import { createConsumer } from "@rails/actioncable"
 
-// Connects to data-controller="chatroom-subscription"
 export default class extends Controller {
   static values = { chatroomId: Number, currentUserId: Number }
   static targets = ["messages"]
@@ -11,6 +10,8 @@ export default class extends Controller {
       { channel: "ChatroomChannel", id: this.chatroomIdValue },
       { received: data => this.#insertMessageAndScrollDown(data) }
     )
+
+
     console.log(`Subscribe to the chatroom with the id ${this.chatroomIdValue}.`)
   }
 
@@ -19,6 +20,7 @@ export default class extends Controller {
   }
 
   #insertMessageAndScrollDown(data) {
+
     const currentUserIsSender = this.currentUserIdValue === data.sender_id
     const messageElement = this.#buildMessageElement(currentUserIsSender, data.message)
     this.messagesTarget.insertAdjacentHTML("beforeend", messageElement)
@@ -42,6 +44,7 @@ export default class extends Controller {
   #userStyleClass(currentUserIsSender) {
     return currentUserIsSender ? "sender-style" : "receiver-style"
   }
+
 
   disconnect() {
     console.log("Unsubscribed from the chatroom")

@@ -4,6 +4,8 @@ require "open-uri"
 
 User.destroy_all
 Animal.destroy_all
+Chatroom.destroy_all
+Adoption.destroy_all
 
 puts "Users destroyed"
 
@@ -30,8 +32,8 @@ puts "Photos opened"
 
 # creating users...
 
-user1 = User.create!(email: "jenapotayah@gmail.com", password: "1234567", first_name: "Jena", last_name: "Potayah", phone: "58486292", address: "Quatre-Bornes", has_dog: false, has_cat: true, has_closed_garden: true, has_basket: false, has_kennel: false)
-user2 = User.create!(email: "ansaar@gmail.com", password: "1234567", first_name: "Ansaar", last_name: "Ramkoleea", phone: "59845839", address: "Phoenix", has_dog: false, has_cat: true, has_closed_garden: false, has_basket: false, has_kennel: false)
+user1 = User.create(email: "jenapotayah@gmail.com", password: "1234567", first_name: "Jena", last_name: "Potayah", phone: "58486292", address: "Quatre-Bornes", has_dog: false, has_cat: true, has_closed_garden: true, has_basket: false, has_kennel: false)
+user2 = User.create(email: "ansaar@gmail.com", password: "1234567", first_name: "Ansaar", last_name: "Ramkoleea", phone: "59845839", address: "Phoenix", has_dog: false, has_cat: true, has_closed_garden: false, has_basket: false, has_kennel: false)
 
 puts "Users created"
 
@@ -69,10 +71,16 @@ animal4.photos.attach(io: caramel3, filename: "a4c4faef-4272-403e-9853-b3e3ceab7
 
 adoption1 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal1)
 adoption2 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal3)
+adoption3 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal2)
+adoption4 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal4)
 
 puts "Animals created, photos attached"
 
 
 
 Chatroom.create(name: "Pilou", adoption: adoption1)
+Chatroom.create(name: "Tripod", adoption: adoption3)
 Chatroom.create(name: "Yoko", adoption: adoption2)
+Chatroom.create(name: "Caramel", adoption: adoption4)
+
+puts "Chatrooms created"
