@@ -42,7 +42,8 @@ class UsersController < ApplicationController
       :has_cat,
       :has_closed_garden,
       :has_basket,
-      :has_kennel
+      :has_kennel,
+      photos: []
     )
   end
 end
