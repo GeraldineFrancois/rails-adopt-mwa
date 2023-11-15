@@ -20,7 +20,16 @@
         <% @adoptions.each do |adoption| %>
           <%= link_to animal_adoption_path(adoption.animal, adoption), class: 'card-request' do %>
             <div class="card-request-info">
-              <p class="m-0 p-0"><%= adoption.animal.name %></p>
+              <% if adoption.animal.breed == "cat" %>
+                <i class="fa-solid fa-cat"></i>
+              <% else %>
+                <i class="fa-solid fa-dog"></i>
+              <% end %>
+                <div>
+                  <p class="m-0 p-0"><strong><%= adoption.animal.name %></strong></p>
+                  <p class="m-0 p-0"><%= adoption.animal.age %> years old</p>
+                </div>
+                <i class="fa-solid fa-eye"></i>
             </div>
           <% end %>
         <% end %>
@@ -31,7 +40,16 @@
         <% @requests.each do |request| %>
           <%= link_to animal_adoption_requests_path(request.animal, request.id), class: 'card-request' do %>
             <div class="card-request-info">
-              <p class="m-0 p-0"><%= request.animal.name %></p>
+              <% if request.animal.breed == "cat" %>
+                <i class="fa-solid fa-cat"></i>
+              <% else %>
+                <i class="fa-solid fa-dog"></i>
+              <% end %>
+                <div>
+                  <p class="m-0 p-0"><strong><%= request.animal.name %></strong></p>
+                  <p class="m-0 p-0"><%= request.animal.age %> years old</p>
+                </div>
+                <i class="fa-solid fa-eye"></i>
             </div>
           <% end %>
         <% end %>
@@ -44,7 +62,16 @@
           <% @adoptions.each do |adoption| %>
             <%= link_to animal_adoption_path(adoption.animal, adoption), class: 'card-request' do %>
               <div class="card-request-info">
-                <p class="m-0 p-0"><%= adoption.animal.name %></p>
+              <% if adoption.animal.breed == "cat" %>
+                <i class="fa-solid fa-cat"></i>
+              <% else %>
+                <i class="fa-solid fa-dog"></i>
+              <% end %>
+                <div>
+                  <p class="m-0 p-0"><strong><%= adoption.animal.name %></strong></p>
+                  <p class="m-0 p-0"><%= adoption.animal.age %> years old</p>
+                </div>
+                <i class="fa-solid fa-eye"></i>
               </div>
             <% end %>
           <% end %>
@@ -56,7 +83,16 @@
           <% @requests.each do |request| %>
             <%= link_to animal_adoption_requests_path(request.animal, request.id), class: 'card-request' do %>
               <div class="card-request-info">
-                <p class="m-0 p-0"><%= request.animal.name %></p>
+              <% if request.animal.breed == "cat" %>
+                <i class="fa-solid fa-cat"></i>
+              <% else %>
+                <i class="fa-solid fa-dog"></i>
+              <% end %>
+                <div>
+                  <p class="m-0 p-0"><strong><%= request.animal.name %></strong></p>
+                  <p class="m-0 p-0"><%= request.animal.age %> years old</p>
+                </div>
+                <i class="fa-solid fa-eye"></i>
               </div>
             <% end %>
           <% end %>
