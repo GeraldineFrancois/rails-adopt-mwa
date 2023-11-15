@@ -1,14 +1,13 @@
 
 <%= simple_form_for @animal, html: { class: "column-form" } do |f| %>
   <%= f.input :name %>
-  <%= f.input :breed, as: :check_boxes, collection: ["dog", "cat"], input_html: { class: "custom-class", type: "checkbox", data: { toggle: "toggle" } } %>
+  <%= f.input :breed, collection: ["dog", "cat"], include_blank: false %>
   <%= f.input :age %>
-  <%# <%= f.input :age_unit, collection: ["months", "years"] %>
   <%= f.input :ok_vaccinated, as: :boolean, label: "Vaccinated" %>
   <%= f.input :ok_sterilised, as: :boolean, label: "Sterilised" %>
   <%= f.input :handicapped, as: :boolean, label: "Handicapped" %>
-  <%= f.input :behaviour, as: :check_boxes, collection: ["playful", "calm"], input_html: { class: "custom-class", type: "checkbox", data: { toggle: "toggle" } } %>
-  <%= f.input :compatibility, as: :check_boxes, collection: ["dog", "cat"], input_html: { class: "custom-class", type: "checkbox", data: { toggle: "toggle" } } %>
+  <%= f.input :behaviour, collection: ["Playful", "Calm"], include_blank: false %>
+  <%= f.input :compatibility, collection: ["dog", "cat"], include_blank: false %>
   <%= f.input :description %>
   <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <%= f.input :location %>

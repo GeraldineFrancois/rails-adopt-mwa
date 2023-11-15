@@ -1,9 +1,10 @@
 .img-full-width img{
     width: 100%;
-    height: 250px;
+    height: 400px;
+    margin-bottom: 5%;
 }
 img {
     width:100%;
     height:100%;
-    object-fit: contain;
+    object-fit: cover;
 }

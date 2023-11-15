@@ -11,12 +11,25 @@ $body-bg:                $light-gray;
 $font-size-base:         1rem;
 
 // Colors
+/* Color-variables - to set our own color variables */
+$blue:    #0d6efd !default;
+$orange:   #ff9147 !default;
+
+/* Colors-map - ... */
+$colors: (
+  "blue": $blue,
+  "orange": $orange
+);
+
+
+
+
 $body-color: $gray;
-$primary:    $blue;
+$primary:    $blue !default;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
-$warning:    $orange;
+$warning:    $orange !default;
 
 // Buttons & inputs' radius
 $border-radius:    2px;

@@ -9,9 +9,9 @@ puts "Users destroyed"
 
 # opening photos for the animals...
 
-caramel1 = URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699608298/chats/IMG_2769_xqmavt.jpg")
-caramel2 = URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699608298/chats/IMG_3166_zy82qh.jpg")
-caramel3 = URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699608298/chats/a4c4faef-4272-403e-9853-b3e3ceab7d36_oow47o.jpg")
+caramel1 = URI.open("https://images.unsplash.com/photo-1561037404-61cd46aa615b?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")
+caramel2 = URI.open("https://media.istockphoto.com/id/1285726078/photo/a-small-white-dog-puppy-breed-jack-russel-terrier-with-beautiful-eyes-lays-on-blancket.jpg?s=1024x1024&w=is&k=20&c=Rs18aI40GC7d1cxEC6rPD7PvGpGD69QdHXdZV4LFXAA=")
+caramel3 = URI.open("https://media.istockphoto.com/id/1283665688/photo/dog-breed-jack-russell-terrier.jpg?s=1024x1024&w=is&k=20&c=29VGeVc1gn1xVp2tNjsstWlSUdPkut4EBKZYHBeP-Oc=")
 
 yoko1= URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699611100/chiens/IMG_3559_celodi.jpg")
 yoko2= URI.open("https://res.cloudinary.com/dnhbgkoqn/image/upload/v1699611100/chiens/IMG_3560_e45eb6.jpg")
