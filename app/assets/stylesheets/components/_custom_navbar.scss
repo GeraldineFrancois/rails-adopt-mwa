@@ -17,14 +17,14 @@
   padding: 20px 0;
 }
 
-// .custom-nav i {
-//   color: #00000078;
-//   font-size: 1.5rem;
-// }
+.custom-nav i {
+  color: #00000078;
+  font-size: 1.5rem;
+}
 
-// i.active {
-//   color: blue;
-// }
+i.active {
+  color: blue;
+}
 
 .user-index {
   li {
@@ -45,25 +45,3 @@
   border-bottom: 1px solid #000000;
   margin-bottom: 20px;
 }
-
-
-
-.custom-nav i:hover {
-  transform: scale(1.2); /* Enlarge the icon on hover */
-  transition: transform 0.3s ease; /* Add a smooth transition */
-}
-
-/* Add a subtle shadow to the icons */
-.custom-nav i {
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a shadow */
-  transition: box-shadow 0.3s ease; /* Add transition for shadow */
-}
-
-/* When active, apply a glow effect to the icons */
-.custom-nav i.active {
-  color: blue; /* Adjust color for active icon */
-  text-shadow: 0 0 10px #00f; /* Add a text shadow for glow effect */
-}
-
-
-
