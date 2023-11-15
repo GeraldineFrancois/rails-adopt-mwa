@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::Base
+
+  def default_url_options
+    { host: ENV["DOMAIN"] || "localhost:3000" }
+  end
+
   before_action :authenticate_user!
   include Pundit::Authorization
 
- 
+
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
