@@ -1,5 +1,5 @@
 .chat-icon {
-  background: white;
+  background: $bg;
   border-radius: 50px;
   height: 40px;
   width: 40px;
@@ -10,8 +10,28 @@
 
   i {
     font-size: 26px;
-    color: #FF781F;
+    color: $icon;
   }
+}
+
+.favorite-icon {
+  background: white;
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px lightgray;
+
+  i {
+    color: #898989;
+
+    &.favorite {
+      color: rgb(255, 0, 0);
+    }
+  }
+
 }
 
 .btn-action {
@@ -24,7 +44,7 @@
     border-radius: 25px;
     color: white;
     box-shadow: 2px 3px 5px lightgray;
-    background-image: linear-gradient(142deg, #FF781F, #FF9D5C);
+    background-image: linear-gradient(142deg, #FF8A00, #ffaf53);
     font-weight: 700;
     font-size: 18px;
 }

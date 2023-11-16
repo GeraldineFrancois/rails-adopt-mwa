@@ -1,5 +1,5 @@
 .custom-nav {
-  background-color: rgb(255, 255, 255);
+  background-color: $cont;
   position: fixed;
   bottom: 0;
   width: 100vw;
@@ -23,7 +23,7 @@
 }
 
 i.active {
-  color: blue;
+  color: $icon;
 }
 
 .user-index {
@@ -34,14 +34,14 @@ i.active {
   }
   a {
   text-decoration: none;
-  color: #000000;
+  color: $text;
   }
   i {
-    color: #ff9147;
+    color: $icon;
   }
 }
 
 #user {
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid $text;
   margin-bottom: 20px;
 }
