@@ -6,3 +6,8 @@ import "bootstrap"
 import "@rails/actioncable"
 
 
+const item = document.querySelector(".fa-heart")
+item.addEventListener("click", function(event) {
+  item.classList.add("active");
+  console.log("bleu");
+});
