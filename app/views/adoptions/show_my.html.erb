@@ -1,13 +1,28 @@
-<div class="container" id="container-request-my">
-  <h2>Adoption request for <%= @adoption.animal.name %></h2>
-  <p>Start date: <%= @adoption.start_date %></p>
-  <p>Adoption status: <%= @adoption.status %></p>
-
-  <%= simple_form_for [@animal, @adoption] do |f| %>
-  <%= f.input :status, as: :radio_buttons, collection: ["approve", "reject"] %>
-  <%= f.submit %>
-  <% end %>
-
-  <%= render "shared/profile_info", user: @adopter, state: @state %>
+<div class="container">
+  <div class="container-request">
+    <h2>Adoption request for <%= @adoption.animal.name %></h2>
+    <div class="d-flex justify-content-between align-items center">
+      <div>
+        <p>Start date: <%= @adoption.start_date %></p>
+        <% if @adoption.status == "pending" %>
+          <%= simple_form_for [@animal, @adoption] do |f| %>
+            <%= f.input :status, as: :radio_buttons, collection: ["approve", "reject"] %>
+            <%= f.submit %>
+          <% end %>
+        <% else %>
+          <p>Adoption status: <%= @adoption.status %></p>
+        <% end %>
+      </div>
+      <div class="chat-icon d-flex align-items-center p-4">
+        <%= link_to chatroom_path(params[:id]), method: :delete do %>
+            <i class="fa-solid fa-comments"></i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container-adopter-info">
+    <h2>Adopter information</h2>
+    <%= render "shared/profile_info", user: @adopter, state: @state %>
+  </div>
   <%= link_to "Back to adoption requests", adoptions_path, class: "btn btn-primary w-100" %>
 </div>
