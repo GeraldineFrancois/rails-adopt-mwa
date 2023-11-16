@@ -2,7 +2,7 @@
 .banner {
   background-size: cover;
   background-position: center;
-  height: 300px;
+  height: 350px;
 
 }
 
@@ -10,8 +10,10 @@
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
+  font-size: 27px;
   font-weight: bold;
+  padding: 5% 0;
+  // text-align: center;
 }
 
 .banner p {
@@ -63,4 +65,19 @@
 
 .card {
   text-align: center;
+}
+
+.text {
+  h3{
+  font-size: 1.5rem;
+  font-weight: 700;
+  }
+  span{
+    font-size: 3.5rem;
+    font-weight: 100;
+  }
+  p {
+  font-size: 1rem;
+  margin: 0 4%;
+  }
 }
