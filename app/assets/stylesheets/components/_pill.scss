@@ -7,13 +7,10 @@
   margin-top: 2%;
 }
 
-.column i {
-  font-size: 20px;
-}
 
 .pill {
   background-color: #f9f5f0;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 8px;
   width: 170px;
   margin-bottom: 5px;
@@ -43,5 +40,6 @@
 }
 
 #share {
-  right: 10%;
+  // right: 10%;
+  display: flex;
 }
