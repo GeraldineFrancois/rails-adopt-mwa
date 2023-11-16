@@ -22,6 +22,11 @@ class AnimalsController < ApplicationController
     authorize @animal
     @conditions = [@animal.ok_vaccinated, @animal.ok_sterilised, @animal.handicapped]
     @state = []
+    @markers = [{
+      lat: @animal.latitude,
+      lng: @animal.longitude,
+      marker_html: render_to_string(partial: "marker")
+    }]
     @conditions.each do |condition|
       if condition
         @state << 'Yes'
