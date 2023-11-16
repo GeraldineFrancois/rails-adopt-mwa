@@ -1,0 +1,30 @@
+.chat-icon {
+  background: white;
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px lightgray;
+
+  i {
+    font-size: 26px;
+    color: #FF781F;
+  }
+}
+
+.btn-action {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 10px;
+    border-radius: 25px;
+    color: white;
+    box-shadow: 2px 3px 5px lightgray;
+    background-image: linear-gradient(142deg, #FF781F, #FF9D5C);
+    font-weight: 700;
+    font-size: 18px;
+}
