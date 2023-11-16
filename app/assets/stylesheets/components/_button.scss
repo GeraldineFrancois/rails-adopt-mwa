@@ -1,5 +1,5 @@
 .chat-icon {
-  background: $bg;
+  background: white;
   border-radius: 50px;
   height: 40px;
   width: 40px;
@@ -7,6 +7,23 @@
   justify-content: center;
   align-items: center;
   box-shadow: 2px 2px 5px lightgray;
+
+  i {
+    font-size: 26px;
+    color: $icon;
+  }
+}
+
+.back-icon {
+  background: $white;
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 2px 5px lightgray;
+  text-decoration: none;
 
   i {
     font-size: 26px;
@@ -48,3 +65,18 @@
     font-weight: 700;
     font-size: 18px;
 }
+
+// input {
+//   padding: 10px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   text-decoration: none;
+//   margin-bottom: 10px;
+//   border-radius: 25px;
+//   color: white;
+//   box-shadow: 2px 3px 5px lightgray;
+//   background-image: linear-gradient(142deg, #7597D1, #90a7d3);
+//   font-weight: 700;
+//   font-size: 18px;
+// }
