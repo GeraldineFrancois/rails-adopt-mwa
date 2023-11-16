@@ -6,8 +6,10 @@
   </div>
   <div id="request-links">
     <%= link_to adoptions_path, class: "" do %>
-      <i class="fa-solid fa-arrow-left"></i>
+      <div class="back-icon">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
     <% end %>
-    <%= link_to "Animal details", animal_path(@animal), class: "btn btn-primary" %>
+    <%= link_to "Animal details", animal_path(@animal), class: "btn-action" %>
   </div>
 </div>
