@@ -1,6 +1,13 @@
 <div class="container-request">
-  <h2>My <%=link_to @animal.name, animal_path(@animal)%> adoption request</h2>
-  <p>Status: <%= @adoption.status %></p>
-  <p>Start date: <%= @adoption.start_date %></p>
-  <%= link_to "Back to adoption requests", adoptions_path %>
+  <h2>My <%= @animal.name %> adoption request</h2>
+  <div id="request-info">
+    <p class="m-0 p-0">Status: <%= @adoption.status %></p>
+    <p class="m-0 p-0">Start date: <%= @adoption.start_date %></p>
+  </div>
+  <div id="request-links">
+    <%= link_to adoptions_path, class: "" do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+    <%= link_to "Animal details", animal_path(@animal), class: "btn btn-primary" %>
+  </div>
 </div>

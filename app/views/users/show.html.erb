@@ -1,7 +1,5 @@
 <div class="container container-profile">
   <h2>Profile page</h2>
   <%= render "shared/profile_info", user: current_user, state: @state %>
-  <%= link_to "Edit information", edit_user_path(current_user), class: "btn btn-primary mb-3"%>
-  <%= link_to "My favorites", favorites_user_path(@user), class: "btn btn-primary mb-3"  %>
-  <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-warning" %>
+  <%= link_to "Edit information", edit_user_path(current_user), class: "btn-action"%>
 </div>
