@@ -4,6 +4,6 @@ meta_title: "AdoptMwa - Saving street pets made easy!"
 
 meta_description: "Relevant description"
 
-meta_image: "cover.jpg" # should exist in `app/assets/images/`
+meta_image: "cover.png" # should exist in `app/assets/images/`
 
 twitter_account: "@product_twitter_account" # required for Twitter Cards
