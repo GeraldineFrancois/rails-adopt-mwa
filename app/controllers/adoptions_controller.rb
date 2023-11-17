@@ -26,6 +26,7 @@ class AdoptionsController < ApplicationController
 
   def new
     @adoption = Adoption.new
+    @chatroom = Chatroom.new
   end
 
   def create
@@ -33,6 +34,9 @@ class AdoptionsController < ApplicationController
     @adoption.animal = @animal
     @adoption.user = current_user
     if @adoption.save
+      @chatroom = Chatroom.new
+      @chatroom.adoption = @adoption
+      @chatroom.save
       redirect_to animal_adoption_path(@animal, @adoption)
     else
       render :new, status: :unprocessable_entity
