@@ -4,10 +4,10 @@
       <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">All</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">My requests</button>
+      <button class="nav-link inactive" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">My requests</button>
     </li>
     <li class="nav-item" role="presentation">
-      <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">My animal requests</button>
+      <button class="nav-link inactive" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">My animal requests</button>
     </li>
   </ul>
 </div>
@@ -15,7 +15,7 @@
 <div class="tab-content" id="pills-tabContent">
   <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
     <div class="container mt-3">
-      <h3>My adoption requests</h3>
+      <h3 class="pb-2">My adoption requests</h3>
       <div class="request-list">
         <% @adoptions.each do |adoption| %>
           <%= link_to animal_adoption_path(adoption.animal, adoption), class: 'card-request' do %>
@@ -35,7 +35,7 @@
         <% end %>
       </div>
       <br>
-      <h3>Requests for my animals</h3>
+      <h3 class="pb-2">Requests for my animals</h3>
       <ul class="request-list">
         <% @requests.each do |request| %>
           <%= link_to animal_adoption_requests_path(request.animal, request.id), class: 'card-request' do %>
@@ -57,7 +57,7 @@
     </div>
   </div>
     <div class="container tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
-      <h3>My adoption requests</h3>
+      <h3 class="pb-2">My adoption requests</h3>
         <ul class="request-list">
           <% @adoptions.each do |adoption| %>
             <%= link_to animal_adoption_path(adoption.animal, adoption), class: 'card-request' do %>
@@ -78,7 +78,7 @@
         </ul>
     </div>
     <div class="container tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
-      <h3>Requests for my animals</h3>
+      <h3 class="pb-2">Requests for my animals</h3>
         <ul class="request-list">
           <% @requests.each do |request| %>
             <%= link_to animal_adoption_requests_path(request.animal, request.id), class: 'card-request' do %>

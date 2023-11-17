@@ -2,10 +2,11 @@ require "open-uri"
 
 # destroying all before seeding again to avoid duplicates...
 
-User.destroy_all
-Animal.destroy_all
+Message.destroy_all
 Chatroom.destroy_all
 Adoption.destroy_all
+Animal.destroy_all
+User.destroy_all
 
 puts "Users destroyed"
 
