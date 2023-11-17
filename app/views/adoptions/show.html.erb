@@ -1,8 +1,15 @@
 <div class="container-request">
   <h2>My <%= @animal.name %> adoption request</h2>
-  <div id="request-info">
-    <p class="m-0 p-0">Start date: <strong><%= @adoption.start_date %></strong></p>
-    <p class="m-0 p-0">Status: <strong><%= @adoption.status %></strong></p>
+  <div id="request-info"  class="d-flex justify-content-between align-items-center">
+    <div>
+      <p class="m-0 p-0">Start date: <strong><%= @adoption.start_date %></strong></p>
+      <p class="m-0 p-0">Status: <strong><%= @adoption.status %></strong></p>
+    </div>
+    <div class="chat-icon d-flex align-items-center p-4">
+      <%= link_to chatroom_path(params[:id]), method: :delete do %>
+          <i class="fa-solid fa-comments"></i>
+      <% end %>
+    </div>
   </div>
   <div id="request-links">
     <div class="back-icon">

@@ -11,7 +11,7 @@
 
   <div class="animal-show-btn-container">
    <% if current_user == @animal.user %>
-    <div class="p-2">
+    <div>
       <!-- Button trigger modal -->
         <button type="button" class="btn-submit px-4" style="border:0px;" data-bs-toggle="modal" data-bs-target="#editModal">
           Edit
@@ -60,7 +60,9 @@
           </div>
         </div>
     </div>
-    <% end %>
+   <% else %>
+    <p></p>
+   <% end %>
   </div>
   </div>
 </div>
