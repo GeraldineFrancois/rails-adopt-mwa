@@ -70,18 +70,18 @@ animal4.photos.attach(io: caramel2, filename: "ecfn0l988j7re3pnxhdc53ods8wo", co
 animal4.photos.attach(io: caramel3, filename: "aq62x9id8zzwz1c97i2lecyjsoqj", content_type: "image/jpg")
 
 
-# adoption1 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal1)
-# adoption2 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal3)
-# adoption3 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal2)
-# adoption4 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal4)
+adoption1 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal1)
+adoption2 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal3)
+adoption3 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal2)
+adoption4 = Adoption.create(start_date: Date.today, status: "pending", user: user1, animal: animal4)
 
 puts "Animals created, photos attached"
 
 
 
-# Chatroom.create(name: "Pilou", adoption: adoption1)
-# Chatroom.create(name: "Tripod", adoption: adoption3)
-# Chatroom.create(name: "Yoko", adoption: adoption2)
-# Chatroom.create(name: "Caramel", adoption: adoption4)
+Chatroom.create(name: "Pilou", adoption: adoption1)
+Chatroom.create(name: "Tripod", adoption: adoption3)
+Chatroom.create(name: "Yoko", adoption: adoption2)
+Chatroom.create(name: "Caramel", adoption: adoption4)
 
-# puts "Chatrooms created"
+puts "Chatrooms created"
