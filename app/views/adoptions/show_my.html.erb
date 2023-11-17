@@ -3,14 +3,14 @@
     <h2>Adoption request for <%= @adoption.animal.name %></h2>
     <div class="d-flex justify-content-between align-items center">
       <div>
-        <p>Start date: <%= @adoption.start_date %></p>
+        <p>Start date: <strong><%= @adoption.start_date %></strong></p>
         <% if @adoption.status == "pending" %>
           <%= simple_form_for [@animal, @adoption] do |f| %>
             <%= f.input :status, label: "Adoption status:", as: :radio_buttons, collection: ["approve", "reject"] %>
             <%= f.submit class: "btn-submit", style: "border:0px;"%>
           <% end %>
         <% else %>
-          <p>Adoption status: <%= @adoption.status %></p>
+          <p>Adoption status: <strong><%= @adoption.status %></strong></p>
         <% end %>
       </div>
       <div class="chat-icon d-flex align-items-center p-4">
