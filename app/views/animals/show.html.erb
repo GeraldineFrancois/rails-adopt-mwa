@@ -1,6 +1,6 @@
 <div class="container show">
   <div class="breadcrumb-bar">
-    <div class="">
+    <div>
       <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><%= link_to "All animals", animals_path, class: "text-decoration-none", style: "color:#7597D1;" %></li>
@@ -11,7 +11,7 @@
 
   <div class="animal-show-btn-container">
    <% if current_user == @animal.user %>
-    <div>
+    <div class="py-2">
       <!-- Button trigger modal -->
         <button type="button" class="btn-submit px-4" style="border:0px;" data-bs-toggle="modal" data-bs-target="#editModal">
           Edit
